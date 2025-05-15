@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MediaTek86.view
+namespace MediaTek86
 {
-    public partial class ConfirmationSuppressionPersonnel : Form
+    public partial class Form1 : Form
     {
-        public ConfirmationSuppressionPersonnel()
+        public Form1()
         {
             InitializeComponent();
         }

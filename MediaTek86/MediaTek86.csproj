@@ -46,59 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="view\ConfirmationSuppressionAbsence.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\ConfirmationSuppressionAbsence.Designer.cs">
-      <DependentUpon>ConfirmationSuppressionAbsence.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\ModifAbsence.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\ModifAbsence.Designer.cs">
-      <DependentUpon>ModifAbsence.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\AjoutAbsence.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\AjoutAbsence.Designer.cs">
-      <DependentUpon>AjoutAbsence.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\ConfirmationSuppressionPersonnel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\ConfirmationSuppressionPersonnel.Designer.cs">
-      <DependentUpon>ConfirmationSuppressionPersonnel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\GestionsAbsences.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\GestionsAbsences.Designer.cs">
-      <DependentUpon>GestionsAbsences.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\ModifPersonnel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\ModifPersonnel.Designer.cs">
-      <DependentUpon>ModifPersonnel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\AjoutPersonnel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\AjoutPersonnel.Designer.cs">
-      <DependentUpon>AjoutPersonnel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\GestionsPersonnels.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\GestionsPersonnels.Designer.cs">
-      <DependentUpon>GestionsPersonnels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\Connexion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\Connexion.Designer.cs">
-      <DependentUpon>Connexion.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,33 +63,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="view\ConfirmationSuppressionAbsence.resx">
-      <DependentUpon>ConfirmationSuppressionAbsence.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\ModifAbsence.resx">
-      <DependentUpon>ModifAbsence.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\AjoutAbsence.resx">
-      <DependentUpon>AjoutAbsence.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\ConfirmationSuppressionPersonnel.resx">
-      <DependentUpon>ConfirmationSuppressionPersonnel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\GestionsAbsences.resx">
-      <DependentUpon>GestionsAbsences.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\ModifPersonnel.resx">
-      <DependentUpon>ModifPersonnel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\AjoutPersonnel.resx">
-      <DependentUpon>AjoutPersonnel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\GestionsPersonnels.resx">
-      <DependentUpon>GestionsPersonnels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\Connexion.resx">
-      <DependentUpon>Connexion.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -154,6 +79,7 @@
   <ItemGroup>
     <Folder Include="controller\" />
     <Folder Include="model\" />
+    <Folder Include="view\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
