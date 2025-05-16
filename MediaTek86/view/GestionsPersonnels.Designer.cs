@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLePersonnel = new System.Windows.Forms.DataGridView();
             this.grbLePersonnel = new System.Windows.Forms.GroupBox();
-            this.btnSuprPerso = new System.Windows.Forms.Button();
-            this.btnModifPerso = new System.Windows.Forms.Button();
-            this.btnAbsencesPerso = new System.Windows.Forms.Button();
             this.btnAjoutPerso = new System.Windows.Forms.Button();
+            this.btnAbsencesPerso = new System.Windows.Forms.Button();
+            this.btnModifPerso = new System.Windows.Forms.Button();
+            this.btnSuprPerso = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLePersonnel)).BeginInit();
             this.grbLePersonnel.SuspendLayout();
             this.SuspendLayout();
@@ -71,23 +71,14 @@
             this.grbLePersonnel.TabStop = false;
             this.grbLePersonnel.Text = "le personnel";
             // 
-            // btnSuprPerso
+            // btnAjoutPerso
             // 
-            this.btnSuprPerso.Location = new System.Drawing.Point(25, 242);
-            this.btnSuprPerso.Name = "btnSuprPerso";
-            this.btnSuprPerso.Size = new System.Drawing.Size(132, 42);
-            this.btnSuprPerso.TabIndex = 2;
-            this.btnSuprPerso.Text = "Supprimer un personnel";
-            this.btnSuprPerso.UseVisualStyleBackColor = true;
-            // 
-            // btnModifPerso
-            // 
-            this.btnModifPerso.Location = new System.Drawing.Point(566, 242);
-            this.btnModifPerso.Name = "btnModifPerso";
-            this.btnModifPerso.Size = new System.Drawing.Size(132, 42);
-            this.btnModifPerso.TabIndex = 3;
-            this.btnModifPerso.Text = "Modifier un personnel";
-            this.btnModifPerso.UseVisualStyleBackColor = true;
+            this.btnAjoutPerso.Location = new System.Drawing.Point(296, 242);
+            this.btnAjoutPerso.Name = "btnAjoutPerso";
+            this.btnAjoutPerso.Size = new System.Drawing.Size(132, 42);
+            this.btnAjoutPerso.TabIndex = 5;
+            this.btnAjoutPerso.Text = "Ajouter un personnel";
+            this.btnAjoutPerso.UseVisualStyleBackColor = true;
             // 
             // btnAbsencesPerso
             // 
@@ -98,14 +89,23 @@
             this.btnAbsencesPerso.Text = "Gestions des absences";
             this.btnAbsencesPerso.UseVisualStyleBackColor = true;
             // 
-            // btnAjoutPerso
+            // btnModifPerso
             // 
-            this.btnAjoutPerso.Location = new System.Drawing.Point(296, 242);
-            this.btnAjoutPerso.Name = "btnAjoutPerso";
-            this.btnAjoutPerso.Size = new System.Drawing.Size(132, 42);
-            this.btnAjoutPerso.TabIndex = 5;
-            this.btnAjoutPerso.Text = "Ajouter un personnel";
-            this.btnAjoutPerso.UseVisualStyleBackColor = true;
+            this.btnModifPerso.Location = new System.Drawing.Point(566, 242);
+            this.btnModifPerso.Name = "btnModifPerso";
+            this.btnModifPerso.Size = new System.Drawing.Size(132, 42);
+            this.btnModifPerso.TabIndex = 3;
+            this.btnModifPerso.Text = "Modifier un personnel";
+            this.btnModifPerso.UseVisualStyleBackColor = true;
+            // 
+            // btnSuprPerso
+            // 
+            this.btnSuprPerso.Location = new System.Drawing.Point(25, 242);
+            this.btnSuprPerso.Name = "btnSuprPerso";
+            this.btnSuprPerso.Size = new System.Drawing.Size(132, 42);
+            this.btnSuprPerso.TabIndex = 2;
+            this.btnSuprPerso.Text = "Supprimer un personnel";
+            this.btnSuprPerso.UseVisualStyleBackColor = true;
             // 
             // GestionsPersonnels
             // 

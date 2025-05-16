@@ -1,16 +1,19 @@
 ﻿namespace MediaTek86.view
 {
-    partial class Ajout_d_un_Personnel
+    /// <summary>
+    /// Vue de ModifPersonnel
+    /// </summary>
+    partial class ModifPersonnel
     {
         /// <summary>
-        /// Required designer variable.
+        /// Variable nécessaire au concepteur.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Nettoyage des ressources utilisées.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,189 +25,199 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.grbAjoutPerso = new System.Windows.Forms.GroupBox();
-            this.btnAjoutAnnuler = new System.Windows.Forms.Button();
-            this.btnAjoutEnregistrer = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.grbAjoutPerso.SuspendLayout();
+            this.grbModifPerso = new System.Windows.Forms.GroupBox();
+            this.lblService = new System.Windows.Forms.Label();
+            this.cboService = new System.Windows.Forms.ComboBox();
+            this.lblMail = new System.Windows.Forms.Label();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.lblTel = new System.Windows.Forms.Label();
+            this.txtTel = new System.Windows.Forms.TextBox();
+            this.lblPrenom = new System.Windows.Forms.Label();
+            this.txtPrenom = new System.Windows.Forms.TextBox();
+            this.lblNom = new System.Windows.Forms.Label();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.lblTitre = new System.Windows.Forms.Label();
+            this.btnEnregistrer = new System.Windows.Forms.Button();
+            this.btnAnnuler = new System.Windows.Forms.Button();
+            this.grbModifPerso.SuspendLayout();
             this.SuspendLayout();
+
             // 
-            // grbAjoutPerso
+            // grbModifPerso
             // 
-            this.grbAjoutPerso.Controls.Add(this.label6);
-            this.grbAjoutPerso.Controls.Add(this.textBox4);
-            this.grbAjoutPerso.Controls.Add(this.label5);
-            this.grbAjoutPerso.Controls.Add(this.textBox3);
-            this.grbAjoutPerso.Controls.Add(this.label4);
-            this.grbAjoutPerso.Controls.Add(this.textBox2);
-            this.grbAjoutPerso.Controls.Add(this.label3);
-            this.grbAjoutPerso.Controls.Add(this.textBox1);
-            this.grbAjoutPerso.Controls.Add(this.label2);
-            this.grbAjoutPerso.Controls.Add(this.label1);
-            this.grbAjoutPerso.Controls.Add(this.comboBox1);
-            this.grbAjoutPerso.Controls.Add(this.btnAjoutEnregistrer);
-            this.grbAjoutPerso.Controls.Add(this.btnAjoutAnnuler);
-            this.grbAjoutPerso.Location = new System.Drawing.Point(12, 12);
-            this.grbAjoutPerso.Name = "grbAjoutPerso";
-            this.grbAjoutPerso.Size = new System.Drawing.Size(412, 273);
-            this.grbAjoutPerso.TabIndex = 0;
-            this.grbAjoutPerso.TabStop = false;
-            this.grbAjoutPerso.Text = "ajout personnel";
+            this.grbModifPerso.Controls.Add(this.lblService);
+            this.grbModifPerso.Controls.Add(this.cboService);
+            this.grbModifPerso.Controls.Add(this.lblMail);
+            this.grbModifPerso.Controls.Add(this.txtMail);
+            this.grbModifPerso.Controls.Add(this.lblTel);
+            this.grbModifPerso.Controls.Add(this.txtTel);
+            this.grbModifPerso.Controls.Add(this.lblPrenom);
+            this.grbModifPerso.Controls.Add(this.txtPrenom);
+            this.grbModifPerso.Controls.Add(this.lblNom);
+            this.grbModifPerso.Controls.Add(this.txtNom);
+            this.grbModifPerso.Controls.Add(this.lblTitre);
+            this.grbModifPerso.Controls.Add(this.btnEnregistrer);
+            this.grbModifPerso.Controls.Add(this.btnAnnuler);
+            this.grbModifPerso.Location = new System.Drawing.Point(12, 12);
+            this.grbModifPerso.Name = "grbModifPerso";
+            this.grbModifPerso.Size = new System.Drawing.Size(412, 273);
+            this.grbModifPerso.TabIndex = 0;
+            this.grbModifPerso.TabStop = false;
+            this.grbModifPerso.Text = "Modification de personnel";
+
             // 
-            // btnAjoutAnnuler
+            // lblTitre
             // 
-            this.btnAjoutAnnuler.Location = new System.Drawing.Point(110, 213);
-            this.btnAjoutAnnuler.Name = "btnAjoutAnnuler";
-            this.btnAjoutAnnuler.Size = new System.Drawing.Size(75, 23);
-            this.btnAjoutAnnuler.TabIndex = 0;
-            this.btnAjoutAnnuler.Text = "Annuler";
-            this.btnAjoutAnnuler.UseVisualStyleBackColor = true;
+            this.lblTitre.AutoSize = true;
+            this.lblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lblTitre.Location = new System.Drawing.Point(100, 16);
+            this.lblTitre.Name = "lblTitre";
+            this.lblTitre.Size = new System.Drawing.Size(220, 25);
+            this.lblTitre.TabIndex = 0;
+            this.lblTitre.Text = "Modification du personnel";
+
             // 
-            // btnAjoutEnregistrer
+            // lblNom
             // 
-            this.btnAjoutEnregistrer.Location = new System.Drawing.Point(235, 213);
-            this.btnAjoutEnregistrer.Name = "btnAjoutEnregistrer";
-            this.btnAjoutEnregistrer.Size = new System.Drawing.Size(75, 23);
-            this.btnAjoutEnregistrer.TabIndex = 1;
-            this.btnAjoutEnregistrer.Text = "Enregistrer";
-            this.btnAjoutEnregistrer.UseVisualStyleBackColor = true;
+            this.lblNom.AutoSize = true;
+            this.lblNom.Location = new System.Drawing.Point(69, 64);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(33, 13);
+            this.lblNom.TabIndex = 1;
+            this.lblNom.Text = "Nom :";
+
             // 
-            // comboBox1
+            // txtNom
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(110, 165);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 2;
+            this.txtNom.Location = new System.Drawing.Point(110, 61);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(200, 20);
+            this.txtNom.TabIndex = 2;
+
             // 
-            // label1
+            // lblPrenom
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(116, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 25);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Ajout d\'un personnel";
+            this.lblPrenom.AutoSize = true;
+            this.lblPrenom.Location = new System.Drawing.Point(54, 90);
+            this.lblPrenom.Name = "lblPrenom";
+            this.lblPrenom.Size = new System.Drawing.Size(48, 13);
+            this.lblPrenom.TabIndex = 3;
+            this.lblPrenom.Text = "Prénom :";
+
             // 
-            // label2
+            // txtPrenom
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "nom :";
+            this.txtPrenom.Location = new System.Drawing.Point(110, 87);
+            this.txtPrenom.Name = "txtPrenom";
+            this.txtPrenom.Size = new System.Drawing.Size(200, 20);
+            this.txtPrenom.TabIndex = 4;
+
             // 
-            // textBox1
+            // lblTel
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 9;
+            this.lblTel.AutoSize = true;
+            this.lblTel.Location = new System.Drawing.Point(78, 116);
+            this.lblTel.Name = "lblTel";
+            this.lblTel.Size = new System.Drawing.Size(26, 13);
+            this.lblTel.TabIndex = 5;
+            this.lblTel.Text = "Tel :";
+
             // 
-            // textBox2
+            // txtTel
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 87);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 11;
+            this.txtTel.Location = new System.Drawing.Point(110, 113);
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(200, 20);
+            this.txtTel.TabIndex = 6;
+
             // 
-            // label3
+            // lblMail
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(54, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "prénom :";
+            this.lblMail.AutoSize = true;
+            this.lblMail.Location = new System.Drawing.Point(71, 142);
+            this.lblMail.Name = "lblMail";
+            this.lblMail.Size = new System.Drawing.Size(31, 13);
+            this.lblMail.TabIndex = 7;
+            this.lblMail.Text = "Mail :";
+
             // 
-            // textBox3
+            // txtMail
             // 
-            this.textBox3.Location = new System.Drawing.Point(110, 113);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 20);
-            this.textBox3.TabIndex = 13;
+            this.txtMail.Location = new System.Drawing.Point(110, 139);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(200, 20);
+            this.txtMail.TabIndex = 8;
+
             // 
-            // label4
+            // lblService
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(78, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "tel :";
+            this.lblService.AutoSize = true;
+            this.lblService.Location = new System.Drawing.Point(55, 168);
+            this.lblService.Name = "lblService";
+            this.lblService.Size = new System.Drawing.Size(47, 13);
+            this.lblService.TabIndex = 9;
+            this.lblService.Text = "Service :";
+
             // 
-            // textBox4
+            // cboService
             // 
-            this.textBox4.Location = new System.Drawing.Point(110, 139);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 20);
-            this.textBox4.TabIndex = 15;
+            this.cboService.FormattingEnabled = true;
+            this.cboService.Location = new System.Drawing.Point(110, 165);
+            this.cboService.Name = "cboService";
+            this.cboService.Size = new System.Drawing.Size(200, 21);
+            this.cboService.TabIndex = 10;
+
             // 
-            // label5
+            // btnAnnuler
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(71, 142);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "mail :";
+            this.btnAnnuler.Location = new System.Drawing.Point(110, 213);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
+            this.btnAnnuler.TabIndex = 11;
+            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.UseVisualStyleBackColor = true;
+
             // 
-            // label6
+            // btnEnregistrer
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(55, 168);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "service :";
+            this.btnEnregistrer.Location = new System.Drawing.Point(235, 213);
+            this.btnEnregistrer.Name = "btnEnregistrer";
+            this.btnEnregistrer.Size = new System.Drawing.Size(75, 23);
+            this.btnEnregistrer.TabIndex = 12;
+            this.btnEnregistrer.Text = "Enregistrer";
+            this.btnEnregistrer.UseVisualStyleBackColor = true;
+
             // 
-            // Ajout_d_un_Personnel
+            // ModifPersonnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 297);
-            this.Controls.Add(this.grbAjoutPerso);
-            this.Name = "Ajout_d_un_Personnel";
-            this.Text = "AjoutPersonnel";
-            this.grbAjoutPerso.ResumeLayout(false);
-            this.grbAjoutPerso.PerformLayout();
+            this.Controls.Add(this.grbModifPerso);
+            this.Name = "ModifPersonnel";
+            this.Text = "Modification Personnel";
+            this.grbModifPerso.ResumeLayout(false);
+            this.grbModifPerso.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grbAjoutPerso;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button btnAjoutEnregistrer;
-        private System.Windows.Forms.Button btnAjoutAnnuler;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox grbModifPerso;
+        private System.Windows.Forms.Label lblTitre;
+        private System.Windows.Forms.Label lblNom;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.Label lblPrenom;
+        private System.Windows.Forms.TextBox txtPrenom;
+        private System.Windows.Forms.Label lblTel;
+        private System.Windows.Forms.TextBox txtTel;
+        private System.Windows.Forms.Label lblMail;
+        private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.Label lblService;
+        private System.Windows.Forms.ComboBox cboService;
+        private System.Windows.Forms.Button btnAnnuler;
+        private System.Windows.Forms.Button btnEnregistrer;
     }
 }

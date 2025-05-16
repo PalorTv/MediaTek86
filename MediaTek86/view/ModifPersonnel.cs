@@ -10,9 +10,15 @@ using System.Windows.Forms;
 
 namespace MediaTek86.view
 {
-    public partial class Ajout_d_un_Personnel : Form
+    /// <summary>
+    /// Fenêtre de modification du personnel
+    /// </summary>
+    public partial class ModifPersonnel : Form
     {
-        public Ajout_d_un_Personnel()
+        /// <summary>
+        /// Construction des composants graphiques et appel des autres initialisations
+        /// </summary>
+        public ModifPersonnel()
         {
             InitializeComponent();
         }

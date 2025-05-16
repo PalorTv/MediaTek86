@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MediaTek86.view
 {
-    public partial class Ajout_d_un_Personnel : Form
+    public partial class AjoutPersonnel : Form
     {
-        public Ajout_d_un_Personnel()
+        public AjoutPersonnel()
         {
             InitializeComponent();
         }

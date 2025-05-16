@@ -1,16 +1,19 @@
 ﻿namespace MediaTek86.view
 {
-    partial class Ajout_d_un_Personnel
+    /// <summary>
+    /// Vue d'AjoutPersonnel
+    /// </summary>
+    partial class AjoutPersonnel
     {
         /// <summary>
-        /// Required designer variable.
+        /// Variable nécessaire au concepteur.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Nettoyage des ressources utilisées.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +25,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.grbAjoutPerso = new System.Windows.Forms.GroupBox();
@@ -176,13 +175,13 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "service :";
             // 
-            // Ajout_d_un_Personnel
+            // AjoutPersonnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 297);
             this.Controls.Add(this.grbAjoutPerso);
-            this.Name = "Ajout_d_un_Personnel";
+            this.Name = "AjoutPersonnel";
             this.Text = "ModifPersonnel";
             this.grbAjoutPerso.ResumeLayout(false);
             this.grbAjoutPerso.PerformLayout();
