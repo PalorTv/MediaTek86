@@ -16,11 +16,11 @@ namespace MediaTek86.model
         /// <param name="libelle"></param>
         public Motif(int idmotif, string libelle)
         {
-            this.Idmotif = idmotif;
+            this.IdMotif = idmotif;
             this.Libelle = libelle;
         }
 
-        public int Idmotif { get; }
+        public int IdMotif { get; }
         public string Libelle { get; set; }
 
     }

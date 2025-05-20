@@ -1,6 +1,6 @@
 ﻿namespace MediaTek86.view
 {
-    partial class ConfirmationSuppressionAbsence
+    partial class ConfirmSupprAbsence
     {
         /// <summary>
         /// Required designer variable.
@@ -53,6 +53,7 @@
             this.btnConfirmationSupprAbsence.TabIndex = 1;
             this.btnConfirmationSupprAbsence.Text = "Oui";
             this.btnConfirmationSupprAbsence.UseVisualStyleBackColor = true;
+            this.btnConfirmationSupprAbsence.Click += new System.EventHandler(this.btnConfirmationSupprAbsence_Click);
             // 
             // btnAnnulationSuprAbsence
             // 
@@ -63,8 +64,9 @@
             this.btnAnnulationSuprAbsence.TabIndex = 2;
             this.btnAnnulationSuprAbsence.Text = "Non";
             this.btnAnnulationSuprAbsence.UseVisualStyleBackColor = true;
+            this.btnAnnulationSuprAbsence.Click += new System.EventHandler(this.btnAnnulSupprAbsence_Click);
             // 
-            // ConfirmationSuppressionAbsence
+            // ConfirmSupprAbsence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,7 +74,7 @@
             this.Controls.Add(this.btnAnnulationSuprAbsence);
             this.Controls.Add(this.btnConfirmationSupprAbsence);
             this.Controls.Add(this.label1);
-            this.Name = "ConfirmationSuppressionAbsence";
+            this.Name = "ConfirmSupprAbsence";
             this.Text = "Confirmation";
             this.ResumeLayout(false);
             this.PerformLayout();

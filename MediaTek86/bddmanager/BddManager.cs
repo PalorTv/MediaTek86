@@ -48,6 +48,12 @@ namespace MediaTek86.bddmanager
             return instance;
         }
 
+        /// <summary>
+        /// Execution d'une requête de type "update"
+        /// </summary>
+        /// <param name="stringQuery">requête select</param>
+        /// <param name="parameters">dictoinnaire contenant les parametres</param>
+        /// <returns>liste de tableaux d'objets contenant les valeurs des colonnes</returns>
         public void ReqUpdate(string stringQuery, Dictionary<string, object> parameters = null)
         {
             MySqlCommand command = new MySqlCommand(stringQuery, connection);
@@ -90,6 +96,23 @@ namespace MediaTek86.bddmanager
             }
             reader.Close();
             return records;
+        }
+
+        public int ReqUpdateWithRowsAffected(string stringQuery, Dictionary<string, object> parameters = null)
+        {
+            using (MySqlCommand command = new MySqlCommand(stringQuery, connection))
+            {
+                if (parameters != null)
+                {
+                    foreach (var param in parameters)
+                    {
+                        command.Parameters.AddWithValue(param.Key, param.Value);
+                    }
+                }
+                command.Prepare();
+                int affectedRows = command.ExecuteNonQuery();
+                return affectedRows;
+            }
         }
     }
 }

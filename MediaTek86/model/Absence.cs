@@ -13,22 +13,22 @@ namespace MediaTek86.model
         /// Valorise les
         /// propriétés
         /// </summary>
-        /// <param name="iddeveloppeur"></param>
+        /// <param name="idpersonnel"></param>
         /// <param name="dateDebut"></param>
         /// <param name="dateFin"></param>
         /// <param name="motif"></param>
-        public Absence(int iddeveloppeur, string dateDebut, string dateFin, Motif motif)
+        public Absence(int idpersonnel, string dateDebut, string dateFin, Motif motif)
         {
-            this.Iddeveloppeur = iddeveloppeur;
-            this.dateDebut = dateDebut;
-            this.dateFin = dateFin;
-            this.motif = motif;
+            this.IdPersonnel = idpersonnel;
+            this.DateDebut = dateDebut;
+            this.DateFin = dateFin;
+            this.Motif = motif;
         }
 
-        public int Iddeveloppeur { get; }
-        public string dateDebut { get; set; }
-        public string dateFin { get; set; }
-        public Motif motif { get; set; }
+        public int IdPersonnel { get; }
+        public string DateDebut { get; set; }
+        public string DateFin { get; set; }
+        public Motif Motif { get; set; }
 
     }
 }

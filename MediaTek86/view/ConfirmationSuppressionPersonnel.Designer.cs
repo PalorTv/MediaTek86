@@ -1,6 +1,6 @@
 ﻿namespace MediaTek86.view
 {
-    partial class ConfirmationSuppressionPersonnel
+    partial class ConfirmSupprPersonnel
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnConfirmationSupr = new System.Windows.Forms.Button();
-            this.btnAnnulationSupr = new System.Windows.Forms.Button();
+            this.btnAnnulSupprPerso = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -53,26 +53,28 @@
             this.btnConfirmationSupr.TabIndex = 1;
             this.btnConfirmationSupr.Text = "Oui";
             this.btnConfirmationSupr.UseVisualStyleBackColor = true;
+            this.btnConfirmationSupr.Click += new System.EventHandler(this.btnConfirmationSupr_Click);
             // 
             // btnAnnulationSupr
             // 
-            this.btnAnnulationSupr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnulationSupr.Location = new System.Drawing.Point(261, 59);
-            this.btnAnnulationSupr.Name = "btnAnnulationSupr";
-            this.btnAnnulationSupr.Size = new System.Drawing.Size(54, 39);
-            this.btnAnnulationSupr.TabIndex = 2;
-            this.btnAnnulationSupr.Text = "Non";
-            this.btnAnnulationSupr.UseVisualStyleBackColor = true;
+            this.btnAnnulSupprPerso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnnulSupprPerso.Location = new System.Drawing.Point(261, 59);
+            this.btnAnnulSupprPerso.Name = "btnAnnulationSupr";
+            this.btnAnnulSupprPerso.Size = new System.Drawing.Size(54, 39);
+            this.btnAnnulSupprPerso.TabIndex = 2;
+            this.btnAnnulSupprPerso.Text = "Non"; 
+            this.btnAnnulSupprPerso.UseVisualStyleBackColor = true;
+            this.btnAnnulSupprPerso.Click += new System.EventHandler(this.btnAnnulSupprPerso_Click);
             // 
-            // ConfirmationSuppressionPersonnel
+            // ConfirmSupprPersonnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(355, 121);
-            this.Controls.Add(this.btnAnnulationSupr);
+            this.Controls.Add(this.btnAnnulSupprPerso);
             this.Controls.Add(this.btnConfirmationSupr);
             this.Controls.Add(this.label1);
-            this.Name = "ConfirmationSuppressionPersonnel";
+            this.Name = "ConfirmSupprPersonnel";
             this.Text = "Confirmation";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -83,6 +85,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnConfirmationSupr;
-        private System.Windows.Forms.Button btnAnnulationSupr;
+        private System.Windows.Forms.Button btnAnnulSupprPerso;
     }
 }

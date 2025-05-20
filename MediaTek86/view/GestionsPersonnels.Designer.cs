@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvLePersonnel = new System.Windows.Forms.DataGridView();
+            this.dgvLePersonnels = new System.Windows.Forms.DataGridView();
             this.grbLePersonnel = new System.Windows.Forms.GroupBox();
             this.btnAjoutPerso = new System.Windows.Forms.Button();
             this.btnAbsencesPerso = new System.Windows.Forms.Button();
             this.btnModifPerso = new System.Windows.Forms.Button();
             this.btnSuprPerso = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLePersonnel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLePersonnels)).BeginInit();
             this.grbLePersonnel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,13 +49,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Gestions du personnels";
             // 
-            // dgvLePersonnel
+            // dgvLePersonnels
             // 
-            this.dgvLePersonnel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLePersonnel.Location = new System.Drawing.Point(6, 19);
-            this.dgvLePersonnel.Name = "dgvLePersonnel";
-            this.dgvLePersonnel.Size = new System.Drawing.Size(711, 195);
-            this.dgvLePersonnel.TabIndex = 1;
+            this.dgvLePersonnels.AllowUserToAddRows = false;
+            this.dgvLePersonnels.AllowUserToDeleteRows = false;
+            this.dgvLePersonnels.AllowUserToResizeColumns = false;
+            this.dgvLePersonnels.AllowUserToResizeRows = false;
+            this.dgvLePersonnels.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLePersonnels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLePersonnels.Location = new System.Drawing.Point(6, 19);
+            this.dgvLePersonnels.Name = "dgvLePersonnels";
+            this.dgvLePersonnels.ReadOnly = true;
+            this.dgvLePersonnels.Size = new System.Drawing.Size(711, 195);
+            this.dgvLePersonnels.TabIndex = 1;
             // 
             // grbLePersonnel
             // 
@@ -63,7 +69,7 @@
             this.grbLePersonnel.Controls.Add(this.btnAbsencesPerso);
             this.grbLePersonnel.Controls.Add(this.btnModifPerso);
             this.grbLePersonnel.Controls.Add(this.btnSuprPerso);
-            this.grbLePersonnel.Controls.Add(this.dgvLePersonnel);
+            this.grbLePersonnel.Controls.Add(this.dgvLePersonnels);
             this.grbLePersonnel.Location = new System.Drawing.Point(12, 43);
             this.grbLePersonnel.Name = "grbLePersonnel";
             this.grbLePersonnel.Size = new System.Drawing.Size(723, 389);
@@ -79,6 +85,7 @@
             this.btnAjoutPerso.TabIndex = 5;
             this.btnAjoutPerso.Text = "Ajouter un personnel";
             this.btnAjoutPerso.UseVisualStyleBackColor = true;
+            this.btnAjoutPerso.Click += new System.EventHandler(this.btnAjoutPerso_Click);
             // 
             // btnAbsencesPerso
             // 
@@ -97,6 +104,7 @@
             this.btnModifPerso.TabIndex = 3;
             this.btnModifPerso.Text = "Modifier un personnel";
             this.btnModifPerso.UseVisualStyleBackColor = true;
+            this.btnModifPerso.Click += new System.EventHandler(this.btnModifPerso_Click);
             // 
             // btnSuprPerso
             // 
@@ -106,6 +114,7 @@
             this.btnSuprPerso.TabIndex = 2;
             this.btnSuprPerso.Text = "Supprimer un personnel";
             this.btnSuprPerso.UseVisualStyleBackColor = true;
+            this.btnSuprPerso.Click += new System.EventHandler(this.btnSupprPerso_Click);
             // 
             // GestionsPersonnels
             // 
@@ -116,7 +125,7 @@
             this.Controls.Add(this.label1);
             this.Name = "GestionsPersonnels";
             this.Text = "GestionsPersonnels";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLePersonnel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLePersonnels)).EndInit();
             this.grbLePersonnel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -126,7 +135,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvLePersonnel;
+        private System.Windows.Forms.DataGridView dgvLePersonnels;
         private System.Windows.Forms.GroupBox grbLePersonnel;
         private System.Windows.Forms.Button btnSuprPerso;
         private System.Windows.Forms.Button btnAjoutPerso;

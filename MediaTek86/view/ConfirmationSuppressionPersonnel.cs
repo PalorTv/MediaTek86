@@ -10,11 +10,24 @@ using System.Windows.Forms;
 
 namespace MediaTek86.view
 {
-    public partial class ConfirmationSuppressionPersonnel : Form
+    public partial class ConfirmSupprPersonnel : Form
     {
-        public ConfirmationSuppressionPersonnel()
+        public ConfirmSupprPersonnel()
         {
             InitializeComponent();
+            btnAnnulSupprPerso.Click += btnAnnulSupprPerso_Click;
+        }
+
+        private void btnAnnulSupprPerso_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnConfirmationSupr_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

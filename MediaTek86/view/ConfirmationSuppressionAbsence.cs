@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace MediaTek86.view
 {
-    public partial class ConfirmationSuppressionAbsence : Form
+    public partial class ConfirmSupprAbsence : Form
     {
-        public ConfirmationSuppressionAbsence()
+        public ConfirmSupprAbsence()
         {
             InitializeComponent();
+        }
+
+        private void btnAnnulSupprAbsence_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnConfirmationSupprAbsence_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

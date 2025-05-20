@@ -12,6 +12,7 @@ namespace MediaTek86.view
 {
     public partial class ModifAbsence : Form
     {
+
         public ModifAbsence()
         {
             InitializeComponent();
