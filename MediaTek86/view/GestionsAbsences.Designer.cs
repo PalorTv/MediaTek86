@@ -34,7 +34,7 @@
             this.btnAjoutAbsence = new System.Windows.Forms.Button();
             this.btnRetour = new System.Windows.Forms.Button();
             this.btnModifAbsence = new System.Windows.Forms.Button();
-            this.btnSuprAbsence = new System.Windows.Forms.Button();
+            this.btnSupprAbsence = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLesAbsences)).BeginInit();
             this.grbLesAbsences.SuspendLayout();
             this.SuspendLayout();
@@ -51,9 +51,15 @@
             // 
             // dgvLesAbsences
             // 
+            this.dgvLesAbsences.AllowUserToAddRows = false;
+            this.dgvLesAbsences.AllowUserToDeleteRows = false;
+            this.dgvLesAbsences.AllowUserToResizeColumns = false;
+            this.dgvLesAbsences.AllowUserToResizeRows = false;
             this.dgvLesAbsences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLesAbsences.Location = new System.Drawing.Point(6, 19);
             this.dgvLesAbsences.Name = "dgvLesAbsences";
+            this.dgvLesAbsences.ReadOnly = true;
+            this.dgvLesAbsences.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvLesAbsences.Size = new System.Drawing.Size(711, 195);
             this.dgvLesAbsences.TabIndex = 1;
             // 
@@ -62,7 +68,7 @@
             this.grbLesAbsences.Controls.Add(this.btnAjoutAbsence);
             this.grbLesAbsences.Controls.Add(this.btnRetour);
             this.grbLesAbsences.Controls.Add(this.btnModifAbsence);
-            this.grbLesAbsences.Controls.Add(this.btnSuprAbsence);
+            this.grbLesAbsences.Controls.Add(this.btnSupprAbsence);
             this.grbLesAbsences.Controls.Add(this.dgvLesAbsences);
             this.grbLesAbsences.Location = new System.Drawing.Point(12, 43);
             this.grbLesAbsences.Name = "grbLesAbsences";
@@ -79,6 +85,7 @@
             this.btnAjoutAbsence.TabIndex = 5;
             this.btnAjoutAbsence.Text = "Ajouter une absence";
             this.btnAjoutAbsence.UseVisualStyleBackColor = true;
+            this.btnAjoutAbsence.Click += new System.EventHandler(this.btnAjoutAbsence_Click);
             // 
             // btnRetour
             // 
@@ -88,6 +95,7 @@
             this.btnRetour.TabIndex = 4;
             this.btnRetour.Text = "Retour";
             this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
             // btnModifAbsence
             // 
@@ -97,15 +105,17 @@
             this.btnModifAbsence.TabIndex = 3;
             this.btnModifAbsence.Text = "Modifier une absence";
             this.btnModifAbsence.UseVisualStyleBackColor = true;
+            this.btnModifAbsence.Click += new System.EventHandler(this.btnModifAbsence_Click);
             // 
-            // btnSuprAbsence
+            // btnSupprAbsence
             // 
-            this.btnSuprAbsence.Location = new System.Drawing.Point(25, 242);
-            this.btnSuprAbsence.Name = "btnSuprAbsence";
-            this.btnSuprAbsence.Size = new System.Drawing.Size(132, 42);
-            this.btnSuprAbsence.TabIndex = 2;
-            this.btnSuprAbsence.Text = "Supprimer une absence";
-            this.btnSuprAbsence.UseVisualStyleBackColor = true;
+            this.btnSupprAbsence.Location = new System.Drawing.Point(25, 242);
+            this.btnSupprAbsence.Name = "btnSupprAbsence";
+            this.btnSupprAbsence.Size = new System.Drawing.Size(132, 42);
+            this.btnSupprAbsence.TabIndex = 2;
+            this.btnSupprAbsence.Text = "Supprimer une absence";
+            this.btnSupprAbsence.UseVisualStyleBackColor = true;
+            this.btnSupprAbsence.Click += new System.EventHandler(this.btnSupprAbsence_Click);
             // 
             // GestionsAbsences
             // 
@@ -115,6 +125,7 @@
             this.Controls.Add(this.grbLesAbsences);
             this.Controls.Add(this.label1);
             this.Name = "GestionsAbsences";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionsAbsences";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLesAbsences)).EndInit();
             this.grbLesAbsences.ResumeLayout(false);
@@ -128,7 +139,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvLesAbsences;
         private System.Windows.Forms.GroupBox grbLesAbsences;
-        private System.Windows.Forms.Button btnSuprAbsence;
+        private System.Windows.Forms.Button btnSupprAbsence;
         private System.Windows.Forms.Button btnAjoutAbsence;
         private System.Windows.Forms.Button btnRetour;
         private System.Windows.Forms.Button btnModifAbsence;

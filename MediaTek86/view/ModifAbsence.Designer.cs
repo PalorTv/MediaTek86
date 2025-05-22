@@ -35,7 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbModifMotifAbsence = new System.Windows.Forms.ComboBox();
+            this.cboModifMotifAbsence = new System.Windows.Forms.ComboBox();
             this.btnModifAbsenceEnregistrer = new System.Windows.Forms.Button();
             this.btnModifAbsenceAnnuler = new System.Windows.Forms.Button();
             this.grbModifAbsence.SuspendLayout();
@@ -49,7 +49,7 @@
             this.grbModifAbsence.Controls.Add(this.label3);
             this.grbModifAbsence.Controls.Add(this.label2);
             this.grbModifAbsence.Controls.Add(this.label1);
-            this.grbModifAbsence.Controls.Add(this.cmbModifMotifAbsence);
+            this.grbModifAbsence.Controls.Add(this.cboModifMotifAbsence);
             this.grbModifAbsence.Controls.Add(this.btnModifAbsenceEnregistrer);
             this.grbModifAbsence.Controls.Add(this.btnModifAbsenceAnnuler);
             this.grbModifAbsence.Location = new System.Drawing.Point(12, 12);
@@ -110,13 +110,13 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Modification d\'une absence";
             // 
-            // cmbModifMotifAbsence
+            // cboModifMotifAbsence
             // 
-            this.cmbModifMotifAbsence.FormattingEnabled = true;
-            this.cmbModifMotifAbsence.Location = new System.Drawing.Point(108, 113);
-            this.cmbModifMotifAbsence.Name = "cmbModifMotifAbsence";
-            this.cmbModifMotifAbsence.Size = new System.Drawing.Size(200, 21);
-            this.cmbModifMotifAbsence.TabIndex = 2;
+            this.cboModifMotifAbsence.FormattingEnabled = true;
+            this.cboModifMotifAbsence.Location = new System.Drawing.Point(108, 113);
+            this.cboModifMotifAbsence.Name = "cboModifMotifAbsence";
+            this.cboModifMotifAbsence.Size = new System.Drawing.Size(200, 21);
+            this.cboModifMotifAbsence.TabIndex = 2;
             // 
             // btnModifAbsenceEnregistrer
             // 
@@ -126,6 +126,7 @@
             this.btnModifAbsenceEnregistrer.TabIndex = 1;
             this.btnModifAbsenceEnregistrer.Text = "Enregistrer";
             this.btnModifAbsenceEnregistrer.UseVisualStyleBackColor = true;
+            this.btnModifAbsenceEnregistrer.Click += new System.EventHandler(this.btnModifAbsenceEnregistrer_Click);
             // 
             // btnModifAbsenceAnnuler
             // 
@@ -135,6 +136,7 @@
             this.btnModifAbsenceAnnuler.TabIndex = 0;
             this.btnModifAbsenceAnnuler.Text = "Annuler";
             this.btnModifAbsenceAnnuler.UseVisualStyleBackColor = true;
+            this.btnModifAbsenceAnnuler.Click += new System.EventHandler(this.btnModifAbsenceAnnuler_Click);
             // 
             // ModifAbsence
             // 
@@ -143,6 +145,7 @@
             this.ClientSize = new System.Drawing.Size(436, 226);
             this.Controls.Add(this.grbModifAbsence);
             this.Name = "ModifAbsence";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModifAbsence";
             this.grbModifAbsence.ResumeLayout(false);
             this.grbModifAbsence.PerformLayout();
@@ -155,12 +158,25 @@
         private System.Windows.Forms.GroupBox grbModifAbsence;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbModifMotifAbsence;
+
+        /// <summary>
+        /// combobox rendu public pour faciliter la communication
+        /// </summary>
+        public System.Windows.Forms.ComboBox cboModifMotifAbsence;
+
         private System.Windows.Forms.Button btnModifAbsenceEnregistrer;
         private System.Windows.Forms.Button btnModifAbsenceAnnuler;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpModifFin;
-        private System.Windows.Forms.DateTimePicker dtpModifDebut;
+
+        /// <summary>
+        /// datetimepicker rendu public pour faciliter la communication
+        /// </summary>
+        public System.Windows.Forms.DateTimePicker dtpModifFin;
+
+        /// <summary>
+        /// datetimepicker rendu public pour faciliter la communication
+        /// </summary>
+        public System.Windows.Forms.DateTimePicker dtpModifDebut;
     }
 }

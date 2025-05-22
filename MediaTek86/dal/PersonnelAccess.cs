@@ -67,7 +67,6 @@ namespace MediaTek86.dal
         /// <param name="personnel">objet personnel à supprimer</param>
         public void DelPersonnel(Personnel personnel)
         {
-
             if (access.Manager != null)
             {
                 string req = "DELETE FROM personnel WHERE idpersonnel = @idpersonnel;";

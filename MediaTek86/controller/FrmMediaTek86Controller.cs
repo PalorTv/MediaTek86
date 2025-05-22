@@ -11,6 +11,11 @@ namespace MediaTek86.controller
     public class FrmMediaTek86Controller
     {
         /// <summary>
+        /// objet d'accès aux opérations possibles sur Absence
+        /// </summary>
+        private readonly AbsenceAccess absenceAccess;
+
+        /// <summary>
         /// objet d'accès aux opérations possibles sur Personnel
         /// </summary>
         private readonly PersonnelAccess personnelAccess;
@@ -20,25 +25,30 @@ namespace MediaTek86.controller
         /// </summary>
         private readonly ServiceAccess serviceAccess;
 
+        /// <summary>
+        /// objet d'accès aux opérations possible sur Motif
+        /// </summary>
+        private readonly MotifAccess motifAccess;
 
         /// <summary>
-        /// Récupère les accèes aux données
+        /// Récupère les acces aux données
         /// </summary>
         public FrmMediaTek86Controller()
         {
             personnelAccess = new PersonnelAccess();
             serviceAccess = new ServiceAccess();
+            absenceAccess = new AbsenceAccess();
+            motifAccess = new MotifAccess();
         }
 
         /// <summary>
         /// Récupère et retourne les infos du personnels
         /// </summary>
-        /// <returns>liste des développeurs</returns>
+        /// <returns>liste du personnels</returns>
         public List<Personnel> GetLePersonnels()
         {
             return personnelAccess.GetLePersonnels();
         }
-
 
         /// <summary>
         /// Récupère et retourne les infos des Services
@@ -47,6 +57,15 @@ namespace MediaTek86.controller
         public List<Service> GetLesServices()
         {
             return serviceAccess.GetLesServices();
+        }
+
+        /// <summary>
+        /// Récupère et retourne les infos des Motifs
+        /// </summary>
+        /// <returns>liste des motifs</returns>
+        public List<Motif> GetLesMotifs()
+        {
+            return motifAccess.GetLesMotifs();
         }
 
         /// <summary>
@@ -75,6 +94,43 @@ namespace MediaTek86.controller
         public void UpdatePersonnel(Personnel personnel)
         {
             personnelAccess.UpdatePersonnel(personnel);
+        }
+
+        /// <summary>
+        /// Récupère et retourne les infos des absences
+        /// </summary>
+        /// <returns>liste des absences</returns>
+        public List<Absence> GetLesAbsences()
+        {
+            return absenceAccess.GetLesAbsences();
+        }
+
+        /// <summary>
+        /// Demande de suppression d'une absence
+        /// </summary>
+        /// <param name="absence">objet absence à supprimer</param>
+        public void DelAbsence(Absence absence)
+        {
+            absenceAccess.DelAbsence(absence);
+        }
+
+
+        /// <summary>
+        /// Demande d'ajout d'une absence
+        /// </summary>
+        /// <param name="absence">objet absence à ajouter</param>
+        public void AddAbsence(Absence absence)
+        {
+            absenceAccess.AddAbsence(absence);
+        }
+
+        /// <summary>
+        /// Demande de modification d'une absence
+        /// </summary>
+        /// <param name="absence">objet absence à modifier</param>
+        public void UpdateAbsence(Absence absence)
+        {
+            absenceAccess.UpdateAbsence(absence);
         }
     }
 }

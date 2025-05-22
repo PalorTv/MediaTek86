@@ -59,9 +59,9 @@ namespace MediaTek86.bddmanager
             MySqlCommand command = new MySqlCommand(stringQuery, connection);
             if (!(parameters is null))
             {
-                foreach (KeyValuePair<string, object> parameter in parameters)
+                foreach (var parameter in parameters)
                 {
-                    command.Parameters.Add(new MySqlParameter(parameter.Key, parameter.Value));
+                    command.Parameters.AddWithValue(parameter.Key, parameter.Value);
                 }
             }
             command.Prepare();
@@ -79,9 +79,9 @@ namespace MediaTek86.bddmanager
             MySqlCommand command = new MySqlCommand(stringQuery, connection);
             if (!(parameters is null))
             {
-                foreach (KeyValuePair<string, object> parameter in parameters)
+                foreach (var parameter in parameters)
                 {
-                    command.Parameters.Add(new MySqlParameter(parameter.Key, parameter.Value));
+                    command.Parameters.AddWithValue(parameter.Key, parameter.Value);
                 }
             }
             command.Prepare();
@@ -104,9 +104,9 @@ namespace MediaTek86.bddmanager
             {
                 if (parameters != null)
                 {
-                    foreach (var param in parameters)
+                    foreach (var parameter in parameters)
                     {
-                        command.Parameters.AddWithValue(param.Key, param.Value);
+                        command.Parameters.AddWithValue(parameter.Key, parameter.Value);
                     }
                 }
                 command.Prepare();

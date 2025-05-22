@@ -15,6 +15,7 @@ namespace MediaTek86.view
         public ConfirmSupprAbsence()
         {
             InitializeComponent();
+            btnAnnulSupprAbsence.Click += btnAnnulSupprAbsence_Click;
         }
 
         private void btnAnnulSupprAbsence_Click(object sender, EventArgs e)
@@ -23,9 +24,10 @@ namespace MediaTek86.view
             this.Close();
         }
 
-        private void btnConfirmationSupprAbsence_Click(object sender, EventArgs e)
+        private void btnConfirmSupprAbsence_Click(object sender, EventArgs e)
         {
-
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

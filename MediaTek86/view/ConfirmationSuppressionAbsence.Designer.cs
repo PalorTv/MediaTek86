@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btnConfirmationSupprAbsence = new System.Windows.Forms.Button();
-            this.btnAnnulationSuprAbsence = new System.Windows.Forms.Button();
+            this.btnConfirmaSupprAbsence = new System.Windows.Forms.Button();
+            this.btnAnnulSupprAbsence = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -44,37 +44,38 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Souhaitez-vous vraiment supprimer cette absence ?";
             // 
-            // btnConfirmationSupprAbsence
+            // btnConfirmaSupprAbsence
             // 
-            this.btnConfirmationSupprAbsence.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmationSupprAbsence.Location = new System.Drawing.Point(42, 60);
-            this.btnConfirmationSupprAbsence.Name = "btnConfirmationSupprAbsence";
-            this.btnConfirmationSupprAbsence.Size = new System.Drawing.Size(54, 39);
-            this.btnConfirmationSupprAbsence.TabIndex = 1;
-            this.btnConfirmationSupprAbsence.Text = "Oui";
-            this.btnConfirmationSupprAbsence.UseVisualStyleBackColor = true;
-            this.btnConfirmationSupprAbsence.Click += new System.EventHandler(this.btnConfirmationSupprAbsence_Click);
+            this.btnConfirmaSupprAbsence.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmaSupprAbsence.Location = new System.Drawing.Point(42, 60);
+            this.btnConfirmaSupprAbsence.Name = "btnConfirmaSupprAbsence";
+            this.btnConfirmaSupprAbsence.Size = new System.Drawing.Size(54, 39);
+            this.btnConfirmaSupprAbsence.TabIndex = 1;
+            this.btnConfirmaSupprAbsence.Text = "Oui";
+            this.btnConfirmaSupprAbsence.UseVisualStyleBackColor = true;
+            this.btnConfirmaSupprAbsence.Click += new System.EventHandler(this.btnConfirmSupprAbsence_Click);
             // 
-            // btnAnnulationSuprAbsence
+            // btnAnnulSupprAbsence
             // 
-            this.btnAnnulationSuprAbsence.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnulationSuprAbsence.Location = new System.Drawing.Point(265, 60);
-            this.btnAnnulationSuprAbsence.Name = "btnAnnulationSuprAbsence";
-            this.btnAnnulationSuprAbsence.Size = new System.Drawing.Size(54, 39);
-            this.btnAnnulationSuprAbsence.TabIndex = 2;
-            this.btnAnnulationSuprAbsence.Text = "Non";
-            this.btnAnnulationSuprAbsence.UseVisualStyleBackColor = true;
-            this.btnAnnulationSuprAbsence.Click += new System.EventHandler(this.btnAnnulSupprAbsence_Click);
+            this.btnAnnulSupprAbsence.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnnulSupprAbsence.Location = new System.Drawing.Point(265, 60);
+            this.btnAnnulSupprAbsence.Name = "btnAnnulSupprAbsence";
+            this.btnAnnulSupprAbsence.Size = new System.Drawing.Size(54, 39);
+            this.btnAnnulSupprAbsence.TabIndex = 2;
+            this.btnAnnulSupprAbsence.Text = "Non";
+            this.btnAnnulSupprAbsence.UseVisualStyleBackColor = true;
+            this.btnAnnulSupprAbsence.Click += new System.EventHandler(this.btnAnnulSupprAbsence_Click);
             // 
             // ConfirmSupprAbsence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(355, 121);
-            this.Controls.Add(this.btnAnnulationSuprAbsence);
-            this.Controls.Add(this.btnConfirmationSupprAbsence);
+            this.Controls.Add(this.btnAnnulSupprAbsence);
+            this.Controls.Add(this.btnConfirmaSupprAbsence);
             this.Controls.Add(this.label1);
             this.Name = "ConfirmSupprAbsence";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Confirmation";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -84,7 +85,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnConfirmationSupprAbsence;
-        private System.Windows.Forms.Button btnAnnulationSuprAbsence;
+        private System.Windows.Forms.Button btnConfirmaSupprAbsence;
+        private System.Windows.Forms.Button btnAnnulSupprAbsence;
     }
 }

@@ -23,5 +23,14 @@ namespace MediaTek86.model
         public int IdMotif { get; }
         public string Libelle { get; set; }
 
+        /// <summary>
+        /// Définit l'information à afficher (juste le libelle)
+        /// </summary>
+        /// <returns>nom du motif</returns>
+        public override string ToString()
+        {
+            return Libelle;
+        }
+
     }
 }

@@ -30,13 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLePersonnels = new System.Windows.Forms.DataGridView();
-            this.grbLePersonnel = new System.Windows.Forms.GroupBox();
+            this.grbLePersonnels = new System.Windows.Forms.GroupBox();
             this.btnAjoutPerso = new System.Windows.Forms.Button();
             this.btnAbsencesPerso = new System.Windows.Forms.Button();
             this.btnModifPerso = new System.Windows.Forms.Button();
             this.btnSuprPerso = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLePersonnels)).BeginInit();
-            this.grbLePersonnel.SuspendLayout();
+            this.grbLePersonnels.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -60,22 +60,23 @@
             this.dgvLePersonnels.Location = new System.Drawing.Point(6, 19);
             this.dgvLePersonnels.Name = "dgvLePersonnels";
             this.dgvLePersonnels.ReadOnly = true;
+            this.dgvLePersonnels.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvLePersonnels.Size = new System.Drawing.Size(711, 195);
             this.dgvLePersonnels.TabIndex = 1;
             // 
-            // grbLePersonnel
+            // grbLePersonnels
             // 
-            this.grbLePersonnel.Controls.Add(this.btnAjoutPerso);
-            this.grbLePersonnel.Controls.Add(this.btnAbsencesPerso);
-            this.grbLePersonnel.Controls.Add(this.btnModifPerso);
-            this.grbLePersonnel.Controls.Add(this.btnSuprPerso);
-            this.grbLePersonnel.Controls.Add(this.dgvLePersonnels);
-            this.grbLePersonnel.Location = new System.Drawing.Point(12, 43);
-            this.grbLePersonnel.Name = "grbLePersonnel";
-            this.grbLePersonnel.Size = new System.Drawing.Size(723, 389);
-            this.grbLePersonnel.TabIndex = 2;
-            this.grbLePersonnel.TabStop = false;
-            this.grbLePersonnel.Text = "le personnel";
+            this.grbLePersonnels.Controls.Add(this.btnAjoutPerso);
+            this.grbLePersonnels.Controls.Add(this.btnAbsencesPerso);
+            this.grbLePersonnels.Controls.Add(this.btnModifPerso);
+            this.grbLePersonnels.Controls.Add(this.btnSuprPerso);
+            this.grbLePersonnels.Controls.Add(this.dgvLePersonnels);
+            this.grbLePersonnels.Location = new System.Drawing.Point(12, 43);
+            this.grbLePersonnels.Name = "grbLePersonnels";
+            this.grbLePersonnels.Size = new System.Drawing.Size(723, 389);
+            this.grbLePersonnels.TabIndex = 2;
+            this.grbLePersonnels.TabStop = false;
+            this.grbLePersonnels.Text = "le personnel";
             // 
             // btnAjoutPerso
             // 
@@ -95,6 +96,7 @@
             this.btnAbsencesPerso.TabIndex = 4;
             this.btnAbsencesPerso.Text = "Gestions des absences";
             this.btnAbsencesPerso.UseVisualStyleBackColor = true;
+            this.btnAbsencesPerso.Click += new System.EventHandler(this.btnAbsencesPerso_Click);
             // 
             // btnModifPerso
             // 
@@ -121,12 +123,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 444);
-            this.Controls.Add(this.grbLePersonnel);
+            this.Controls.Add(this.grbLePersonnels);
             this.Controls.Add(this.label1);
             this.Name = "GestionsPersonnels";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionsPersonnels";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLePersonnels)).EndInit();
-            this.grbLePersonnel.ResumeLayout(false);
+            this.grbLePersonnels.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,7 +139,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvLePersonnels;
-        private System.Windows.Forms.GroupBox grbLePersonnel;
+        private System.Windows.Forms.GroupBox grbLePersonnels;
         private System.Windows.Forms.Button btnSuprPerso;
         private System.Windows.Forms.Button btnAjoutPerso;
         private System.Windows.Forms.Button btnAbsencesPerso;

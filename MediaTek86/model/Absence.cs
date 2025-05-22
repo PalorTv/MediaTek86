@@ -1,5 +1,4 @@
-﻿using Org.BouncyCastle.Crypto.Digests;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,20 +13,22 @@ namespace MediaTek86.model
         /// propriétés
         /// </summary>
         /// <param name="idpersonnel"></param>
-        /// <param name="dateDebut"></param>
-        /// <param name="dateFin"></param>
+        /// <param name="datedebut"></param>
+        /// <param name="datefin"></param>
         /// <param name="motif"></param>
-        public Absence(int idpersonnel, string dateDebut, string dateFin, Motif motif)
+        public Absence(int idpersonnel, DateTime datedebut, DateTime datefin, Motif motif)
         {
             this.IdPersonnel = idpersonnel;
-            this.DateDebut = dateDebut;
-            this.DateFin = dateFin;
+            this.DateDebut = datedebut;
+            this.DateFin = datefin;
+            this.AncienneDateDebut = datedebut;
             this.Motif = motif;
         }
 
         public int IdPersonnel { get; }
-        public string DateDebut { get; set; }
-        public string DateFin { get; set; }
+        public DateTime DateDebut { get; set; }
+        public DateTime DateFin { get; set; }
+        public DateTime AncienneDateDebut { get; set; }
         public Motif Motif { get; set; }
 
     }

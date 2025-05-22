@@ -35,9 +35,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbMotifAbsence = new System.Windows.Forms.ComboBox();
-            this.btnAjoutAbsenceEnregistrer = new System.Windows.Forms.Button();
-            this.btnAjoutAbsenceAnnuler = new System.Windows.Forms.Button();
+            this.cboMotifAbsence = new System.Windows.Forms.ComboBox();
+            this.btnEnregistrerAjoutAbsence = new System.Windows.Forms.Button();
+            this.btnAnnulAjoutAbsence = new System.Windows.Forms.Button();
             this.grbAjoutAbsence.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,9 +49,9 @@
             this.grbAjoutAbsence.Controls.Add(this.label3);
             this.grbAjoutAbsence.Controls.Add(this.label2);
             this.grbAjoutAbsence.Controls.Add(this.label1);
-            this.grbAjoutAbsence.Controls.Add(this.cmbMotifAbsence);
-            this.grbAjoutAbsence.Controls.Add(this.btnAjoutAbsenceEnregistrer);
-            this.grbAjoutAbsence.Controls.Add(this.btnAjoutAbsenceAnnuler);
+            this.grbAjoutAbsence.Controls.Add(this.cboMotifAbsence);
+            this.grbAjoutAbsence.Controls.Add(this.btnEnregistrerAjoutAbsence);
+            this.grbAjoutAbsence.Controls.Add(this.btnAnnulAjoutAbsence);
             this.grbAjoutAbsence.Location = new System.Drawing.Point(12, 12);
             this.grbAjoutAbsence.Name = "grbAjoutAbsence";
             this.grbAjoutAbsence.Size = new System.Drawing.Size(412, 206);
@@ -110,31 +110,33 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Ajout d\'une absence";
             // 
-            // cmbMotifAbsence
+            // cboMotifAbsence
             // 
-            this.cmbMotifAbsence.FormattingEnabled = true;
-            this.cmbMotifAbsence.Location = new System.Drawing.Point(108, 113);
-            this.cmbMotifAbsence.Name = "cmbMotifAbsence";
-            this.cmbMotifAbsence.Size = new System.Drawing.Size(200, 21);
-            this.cmbMotifAbsence.TabIndex = 2;
+            this.cboMotifAbsence.FormattingEnabled = true;
+            this.cboMotifAbsence.Location = new System.Drawing.Point(108, 113);
+            this.cboMotifAbsence.Name = "cboMotifAbsence";
+            this.cboMotifAbsence.Size = new System.Drawing.Size(200, 21);
+            this.cboMotifAbsence.TabIndex = 2;
             // 
-            // btnAjoutAbsenceEnregistrer
+            // btnEnregistrerAjoutAbsence
             // 
-            this.btnAjoutAbsenceEnregistrer.Location = new System.Drawing.Point(235, 152);
-            this.btnAjoutAbsenceEnregistrer.Name = "btnAjoutAbsenceEnregistrer";
-            this.btnAjoutAbsenceEnregistrer.Size = new System.Drawing.Size(75, 23);
-            this.btnAjoutAbsenceEnregistrer.TabIndex = 1;
-            this.btnAjoutAbsenceEnregistrer.Text = "Enregistrer";
-            this.btnAjoutAbsenceEnregistrer.UseVisualStyleBackColor = true;
+            this.btnEnregistrerAjoutAbsence.Location = new System.Drawing.Point(235, 152);
+            this.btnEnregistrerAjoutAbsence.Name = "btnEnregistrerAjoutAbsence";
+            this.btnEnregistrerAjoutAbsence.Size = new System.Drawing.Size(75, 23);
+            this.btnEnregistrerAjoutAbsence.TabIndex = 1;
+            this.btnEnregistrerAjoutAbsence.Text = "Enregistrer";
+            this.btnEnregistrerAjoutAbsence.UseVisualStyleBackColor = true;
+            this.btnEnregistrerAjoutAbsence.Click += new System.EventHandler(this.btnEnregistrerAjoutAbsence_Click);
             // 
-            // btnAjoutAbsenceAnnuler
+            // btnAnnulAjoutAbsence
             // 
-            this.btnAjoutAbsenceAnnuler.Location = new System.Drawing.Point(108, 152);
-            this.btnAjoutAbsenceAnnuler.Name = "btnAjoutAbsenceAnnuler";
-            this.btnAjoutAbsenceAnnuler.Size = new System.Drawing.Size(75, 23);
-            this.btnAjoutAbsenceAnnuler.TabIndex = 0;
-            this.btnAjoutAbsenceAnnuler.Text = "Annuler";
-            this.btnAjoutAbsenceAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnulAjoutAbsence.Location = new System.Drawing.Point(108, 152);
+            this.btnAnnulAjoutAbsence.Name = "btnAnnulAjoutAbsence";
+            this.btnAnnulAjoutAbsence.Size = new System.Drawing.Size(75, 23);
+            this.btnAnnulAjoutAbsence.TabIndex = 0;
+            this.btnAnnulAjoutAbsence.Text = "Annuler";
+            this.btnAnnulAjoutAbsence.UseVisualStyleBackColor = true;
+            this.btnAnnulAjoutAbsence.Click += new System.EventHandler(this.btnAnnulAjoutAbsence_Click);
             // 
             // AjoutAbsence
             // 
@@ -155,12 +157,25 @@
         private System.Windows.Forms.GroupBox grbAjoutAbsence;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbMotifAbsence;
-        private System.Windows.Forms.Button btnAjoutAbsenceEnregistrer;
-        private System.Windows.Forms.Button btnAjoutAbsenceAnnuler;
+
+        /// <summary>
+        /// combobox rendu public pour faciliter la communication
+        /// </summary>
+        public System.Windows.Forms.ComboBox cboMotifAbsence;
+
+        private System.Windows.Forms.Button btnEnregistrerAjoutAbsence;
+        private System.Windows.Forms.Button btnAnnulAjoutAbsence;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpAjoutFin;
-        private System.Windows.Forms.DateTimePicker dtpAjoutDebut;
+
+        /// <summary>
+        /// datetimepicker rendu public pour faciliter la communication
+        /// </summary>
+        public System.Windows.Forms.DateTimePicker dtpAjoutFin;
+
+        /// <summary>
+        /// datetimepicker rendu public pour faciliter la communication
+        /// </summary>
+        public System.Windows.Forms.DateTimePicker dtpAjoutDebut;
     }
 }

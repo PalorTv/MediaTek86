@@ -24,7 +24,7 @@ namespace MediaTek86.view
             this.Close();
         }
 
-        private void btnConfirmationSupr_Click(object sender, EventArgs e)
+        private void btnConfirmSuppr_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
             this.Close();

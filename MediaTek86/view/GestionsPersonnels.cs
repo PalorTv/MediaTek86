@@ -62,8 +62,12 @@ namespace MediaTek86.view
             dgvLePersonnels.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvLePersonnels.Width = this.ClientSize.Width - 40;
             dgvLePersonnels.Left = 20;
+            grbLePersonnels.Text = "";
         }
 
+        /// <summary>
+        /// Centre le DataGridView
+        /// </summary>
         private void CentrerDgvPersonnels()
         {
             dgvLePersonnels.Left = (this.ClientSize.Width - dgvLePersonnels.Width) / 2; dgvLePersonnels.Left = (this.ClientSize.Width - dgvLePersonnels.Width) / 2;
@@ -75,20 +79,17 @@ namespace MediaTek86.view
         private void RemplirListePersonnels()
         {
             List<Personnel> lesPersonnels = controller.GetLePersonnels();
-
             bdgPersonnels.DataSource = null;
             bdgPersonnels.DataSource = lesPersonnels;
-
             dgvLePersonnels.DataSource = bdgPersonnels;
 
-            // Cacher la colonne idpersonnel à chaque remplissage
+            // Cache la colonne idpersonnel à chaque remplissage
             if (dgvLePersonnels.Columns["idpersonnel"] != null)
             {
                 dgvLePersonnels.Columns["idpersonnel"].Visible = false;
             }
 
             dgvLePersonnels.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
             CentrerDgvPersonnels();
         }
 
@@ -119,16 +120,16 @@ namespace MediaTek86.view
 
         private void btnAjoutPerso_Click(object sender, EventArgs e)
         {
-            // Créer une instance du formulaire AjoutPersonnel
+            // Crée une instance du formulaire AjoutPersonnel
             AjoutPersonnel ajoutPersonnel = new AjoutPersonnel();
 
-            // Afficher le formulaire 
+            // Affiche le formulaire 
             var result = ajoutPersonnel.ShowDialog();
 
             // Si l'utilisateur a cliqué sur "Enregistrer"
             if (result == DialogResult.OK)
             {
-                // Récupérer les valeurs après la fermeture du formulaire
+                // Récupéres les valeurs après la fermeture du formulaire
                 string nom = ajoutPersonnel.txtAjoutNom.Text;
                 string prenom = ajoutPersonnel.txtAjoutPrenom.Text;
                 string tel = ajoutPersonnel.txtAjoutTel.Text;
@@ -140,11 +141,11 @@ namespace MediaTek86.view
                 {
                     MessageBox.Show("Le personnel " + nom + " " + prenom + " a été correctement ajouté.");
 
-                    // Créer un objet Personnel et l'ajouter
+                    // Crée un objet Absence et l'ajoute
                     Personnel personnel = new Personnel(0, nom, prenom, tel, mail, service);
                     controller.AddPersonnel(personnel);  // Ajout à la BDD
 
-                    // Mettre à jour la liste du personnels dans l'interface
+                    // Met à jour la liste du personnels dans l'interface
                     RemplirListePersonnels();
                 }
                 else
@@ -196,5 +197,23 @@ namespace MediaTek86.view
             }
         }
 
+        private void btnAbsencesPerso_Click(object sender, EventArgs e)
+        {
+            if (dgvLePersonnels.SelectedRows.Count > 0)
+            {
+                // Récupérer le personnel sélectionné
+                Personnel personnel = (Personnel)dgvLePersonnels.SelectedRows[0].DataBoundItem;
+
+                // Créer l'instance du formulaire en passant le personnel
+                GestionsAbsences gestionsAbsences = new GestionsAbsences(personnel);
+
+                // Affiche le formulaire
+                gestionsAbsences.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un personnel.", "Information");
+            }
+        }
     }
 }

@@ -184,6 +184,7 @@
             this.ClientSize = new System.Drawing.Size(436, 297);
             this.Controls.Add(this.grbAjoutPerso);
             this.Name = "AjoutPersonnel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AjoutPersonnel";
             this.grbAjoutPerso.ResumeLayout(false);
             this.grbAjoutPerso.PerformLayout();
@@ -194,18 +195,43 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grbAjoutPerso;
+
+        /// <summary>
+        /// textbox rendu public pour faciliter la communication
+        /// </summary>
         public System.Windows.Forms.TextBox txtAjoutNom;
+
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+
+        /// <summary>
+        /// combobox rendu public pour faciliter la communication
+        /// </summary>
         public System.Windows.Forms.ComboBox cboAjoutService;
+
         private System.Windows.Forms.Button btnAjoutEnregistrer;
         private System.Windows.Forms.Button btnAjoutAnnuler;
         private System.Windows.Forms.Label label6;
+
+        /// <summary>
+        /// textbox rendu public pour faciliter la communication
+        /// </summary>
         public System.Windows.Forms.TextBox txtAjoutMail;
+
         private System.Windows.Forms.Label label5;
+
+        /// <summary>
+        /// textbox rendu public pour faciliter la communication
+        /// </summary>
         public System.Windows.Forms.TextBox txtAjoutTel;
+
         private System.Windows.Forms.Label label4;
+
+        /// <summary>
+        /// textbox rendu public pour faciliter la communication
+        /// </summary>
         public System.Windows.Forms.TextBox txtAjoutPrenom;
+
         private System.Windows.Forms.Label label3;
     }
 }

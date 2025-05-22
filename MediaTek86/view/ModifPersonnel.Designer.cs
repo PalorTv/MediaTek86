@@ -184,6 +184,7 @@
             this.ClientSize = new System.Drawing.Size(436, 297);
             this.Controls.Add(this.grbModifPerso);
             this.Name = "ModifPersonnel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modification Personnel";
             this.grbModifPerso.ResumeLayout(false);
             this.grbModifPerso.PerformLayout();
@@ -196,36 +197,47 @@
         private System.Windows.Forms.GroupBox grbModifPerso;
         private System.Windows.Forms.Label lblTitre;
         private System.Windows.Forms.Label lblNom;
+
         /// <summary>
-        /// textbox rendu public pour faciliter les liaisons
+        /// textbox rendu public pour faciliter la communication
         /// </summary>
         public System.Windows.Forms.TextBox txtModifNom;
+
         private System.Windows.Forms.Label lblPrenom;
+
         /// <summary>
-        /// textbox rendu public pour faciliter les liaisons
+        /// textbox rendu public pour faciliter la communication
         /// </summary>
         public System.Windows.Forms.TextBox txtModifPrenom;
+
         private System.Windows.Forms.Label lblTel;
+
         /// <summary>
-        /// textbox rendu public pour faciliter les liaisons
+        /// textbox rendu public pour faciliter la communication
         /// </summary>
         public System.Windows.Forms.TextBox txtModifTel;
+
         private System.Windows.Forms.Label lblMail;
+
         /// <summary>
-        /// textbox rendu public pour faciliter les liaisons
+        /// textbox rendu public pour faciliter la communication
         /// </summary>
         public System.Windows.Forms.TextBox txtModifMail;
+
         private System.Windows.Forms.Label lblService;
+
         /// <summary>
-        /// combobox rendu public pour faciliter les liaisons
+        /// combobox rendu public pour faciliter la communication
         /// </summary>
         public System.Windows.Forms.ComboBox cboModifService;
+
         /// <summary>
-        /// bouton rendu public pour faciliter les liaisons
+        /// bouton rendu public pour faciliter la communication
         /// </summary>
         public System.Windows.Forms.Button btnModifAnnuler;
+
         /// <summary>
-        /// bouton rendu public pour faciliter les liaisons
+        /// bouton rendu public pour faciliter la communication
         /// </summary>
         public System.Windows.Forms.Button btnModifEnregistrer;
     }
