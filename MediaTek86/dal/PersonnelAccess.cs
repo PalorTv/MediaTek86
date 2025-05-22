@@ -36,9 +36,9 @@ namespace MediaTek86.dal
             List<Personnel> lePersonnels = new List<Personnel>();
             if (access.Manager != null)
             {
-                string req = "select p.idpersonnel as idpersonnel, p.nom as nom, p.prenom as prenom, p.tel as tel, p.mail as mail, p.idservice as idservice, s.nom as service ";
-                req += "from personnel p join service s on (p.idservice = s.idservice) ";
-                req += "order by nom, prenom;";
+                string req = "SELECT p.idpersonnel AS idpersonnel, p.nom AS nom, p.prenom AS prenom, p.tel AS tel, p.mail AS mail, p.idservice AS idservice, s.nom AS service ";
+                req += "FROM personnel p JOIN service s ON (p.idservice = s.idservice)";
+                req += "ORDER BY nom, prenom;";
                 try
                 {
                     List<Object[]> records = access.Manager.ReqSelect(req);

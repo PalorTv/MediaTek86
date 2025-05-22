@@ -112,6 +112,7 @@
     <Compile Include="model\Personnel.cs" />
     <Compile Include="model\Responsable.cs" />
     <Compile Include="model\Service.cs" />
+    <Compile Include="outils\HashTools.cs" />
     <Compile Include="view\ConfirmationSuppressionAbsence.cs">
       <SubType>Form</SubType>
     </Compile>

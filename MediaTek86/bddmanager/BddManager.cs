@@ -114,5 +114,27 @@ namespace MediaTek86.bddmanager
                 return affectedRows;
             }
         }
+
+        /// <summary>
+        /// Exécute une requête qui retourne une seule valeur
+        /// </summary>
+        /// <param name="stringQuery">Requête SQL</param>
+        /// <param name="parameters">Paramètres de la requête</param>
+        /// <returns>Objet résultat (ex: int, string...)</returns>
+        public object ReqScalar(string stringQuery, Dictionary<string, object> parameters = null)
+        {
+            using (MySqlCommand command = new MySqlCommand(stringQuery, connection))
+            {
+                if (parameters != null)
+                {
+                    foreach (var parameter in parameters)
+                    {
+                        command.Parameters.AddWithValue(parameter.Key, parameter.Value);
+                    }
+                }
+                command.Prepare();
+                return command.ExecuteScalar();
+            }
+        }
     }
 }

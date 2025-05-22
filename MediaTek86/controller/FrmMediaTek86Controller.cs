@@ -2,13 +2,10 @@
 using MediaTek86.model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MediaTek86.controller
 {
-    public class FrmMediaTek86Controller
+     public class FrmMediaTek86Controller
     {
         /// <summary>
         /// objet d'accès aux opérations possibles sur Absence
@@ -21,6 +18,11 @@ namespace MediaTek86.controller
         private readonly PersonnelAccess personnelAccess;
 
         /// <summary>
+        /// objet d'accès aux opérations possibles sur Responsable
+        /// </summary>
+        private readonly ResponsableAccess responsableAccess;
+
+        /// <summary>
         /// objet d'accès aux opérations possible sur Service
         /// </summary>
         private readonly ServiceAccess serviceAccess;
@@ -31,11 +33,12 @@ namespace MediaTek86.controller
         private readonly MotifAccess motifAccess;
 
         /// <summary>
-        /// Récupère les acces aux données
+        /// Récupère les accès aux données
         /// </summary>
         public FrmMediaTek86Controller()
         {
             personnelAccess = new PersonnelAccess();
+            responsableAccess = new ResponsableAccess();
             serviceAccess = new ServiceAccess();
             absenceAccess = new AbsenceAccess();
             motifAccess = new MotifAccess();
@@ -131,6 +134,16 @@ namespace MediaTek86.controller
         public void UpdateAbsence(Absence absence)
         {
             absenceAccess.UpdateAbsence(absence);
+        }
+
+        /// <summary>
+        /// Vérifie l'authentification
+        /// </summary>
+        /// <param name="responsable">objet contenant les informations de connexion</param>
+        /// <returns> vrai si les informations de connexion sont correctes</returns>
+        public Boolean ControleAuthentification(Responsable responsable)
+        {
+            return responsableAccess.ControleAuthentification(responsable);
         }
     }
 }

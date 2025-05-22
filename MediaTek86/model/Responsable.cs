@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MediaTek86.model
 {
+    /// <summary>
+    /// Classe métier interne pour mémoriser les informations d'authentification
+    /// </summary>
     public class Responsable
     {
         /// <summary>
@@ -18,7 +21,7 @@ namespace MediaTek86.model
             this.Login = login;
             this.Pwd = pwd;
         }
-        public string Login { get; set; }
-        public string Pwd { get; set; }
+        public string Login { get; }
+        public string Pwd { get; }
     }
 }
