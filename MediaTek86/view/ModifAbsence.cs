@@ -2,12 +2,6 @@
 using MediaTek86.controller;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MediaTek86.view
@@ -22,7 +16,31 @@ namespace MediaTek86.view
         /// </summary>
         private FrmMediaTek86Controller controller;
 
+        /// <summary>
+        /// Exposition de la propriétée
+        /// </summary>
         private Absence absence;
+
+        /// <summary>
+        /// Exposition de la propriétée
+        /// </summary>
+        public DateTime NouvelleDateDebut => dtpModifDebut.Value;
+
+        /// <summary>
+        /// Exposition de la propriétée
+        /// </summary>
+        public DateTime NouvelleDateFin => dtpModifFin.Value;
+
+        /// <summary>
+        /// Exposition de la propriétée
+        /// </summary>
+        public DateTime AncienneDateDebut => absence.DateDebut;
+
+        /// <summary>
+        /// Exposition de la propriétée
+        /// </summary>
+        public Motif NouveauMotif => (Motif)cboModifMotifAbsence.SelectedItem;
+
 
         /// <summary>
         /// Construction des composants graphiques et appel des autres initialisations

@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MediaTek86.model
 {
+    /// <summary>
+    /// Classe métier interne pour mémoriser les informations de l'absence
+    /// </summary>
     public class Absence
     {
         /// <summary>
@@ -25,10 +24,29 @@ namespace MediaTek86.model
             this.Motif = motif;
         }
 
+        /// <summary>
+        /// Valorisateur
+        /// </summary>
         public int IdPersonnel { get; }
+
+        /// <summary>
+        /// Valorisateur
+        /// </summary>
         public DateTime DateDebut { get; set; }
+
+        /// <summary>
+        /// Valorisateur
+        /// </summary>
         public DateTime DateFin { get; set; }
+
+        /// <summary>
+        /// Valorisateur
+        /// </summary>
         public DateTime AncienneDateDebut { get; set; }
+
+        /// <summary>
+        /// Valorisateur
+        /// </summary>
         public Motif Motif { get; set; }
 
     }

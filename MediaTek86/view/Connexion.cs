@@ -35,7 +35,12 @@ namespace MediaTek86
         {
             controller = new FrmMediaTek86Controller();
         }
-
+        
+        /// <summary>
+        /// Clique sur le bouton de connexion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConnexion_Click(object sender, EventArgs e)
         {
             String login = txtLogin.Text;

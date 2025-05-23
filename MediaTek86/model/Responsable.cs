@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MediaTek86.model
+﻿namespace MediaTek86.model
 {
     /// <summary>
     /// Classe métier interne pour mémoriser les informations d'authentification
@@ -21,7 +15,15 @@ namespace MediaTek86.model
             this.Login = login;
             this.Pwd = pwd;
         }
+
+        /// <summary>
+        /// Valorisateur
+        /// </summary>
         public string Login { get; }
+
+        /// <summary>
+        /// Valorisateur
+        /// </summary>
         public string Pwd { get; }
     }
 }

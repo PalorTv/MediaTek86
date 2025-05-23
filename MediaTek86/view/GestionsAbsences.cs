@@ -1,14 +1,10 @@
-﻿using System;
+﻿using MediaTek86.controller;
+using MediaTek86.dal;
 using MediaTek86.model;
-using MediaTek86.controller;
-using MediaTek86.view;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MediaTek86.view
@@ -19,7 +15,7 @@ namespace MediaTek86.view
     public partial class GestionsAbsences : Form
     {
         /// <summary>
-        /// Objet pour gérer la liste du personnels
+        /// Objet pour gérer la liste des absences
         /// </summary>
         private BindingSource bdgAbsences = new BindingSource();
 
@@ -29,12 +25,12 @@ namespace MediaTek86.view
         private FrmMediaTek86Controller controller;
 
         /// <summary>
-        /// 
+        /// Conserve en mémoire l'objet représentant le personnel sélectionné
         /// </summary>
         private Personnel personnel;
 
         /// <summary>
-        /// construction des composants graphiques et appel des autres initialisations
+        /// Construction des composants graphiques et appel des autres initialisations
         /// </summary>
         public GestionsAbsences(Personnel personnel)
         {
@@ -74,9 +70,8 @@ namespace MediaTek86.view
         {
             List<Absence> lesAbsences = controller.GetLesAbsences();
 
-            // Filtrage selon le personnel sélectionné
+            // Filtre selon le personnel sélectionné
             List<Absence> lesAbsencesDuPersonnel = lesAbsences.Where(a => a.IdPersonnel == personnel.Idpersonnel).ToList();
-
             bdgAbsences.DataSource = null;
             bdgAbsences.DataSource = lesAbsencesDuPersonnel;
             dgvLesAbsences.DataSource = bdgAbsences;
@@ -93,7 +88,7 @@ namespace MediaTek86.view
                 dgvLesAbsences.Columns["AncienneDateDebut"].Visible = false;
             }
 
-            // Formater les colonnes date pour ne pas afficher l'heure
+            // Formate les colonnes date pour ne pas afficher l'heure
             if (dgvLesAbsences.Columns["datedebut"] != null)
                 dgvLesAbsences.Columns["datedebut"].DefaultCellStyle.Format = "yyyy-MM-dd";
 
@@ -104,6 +99,30 @@ namespace MediaTek86.view
             CentrerDgvAbsences();
         }
 
+        /// <summary>
+        /// Vérifie si une absence existe déjà pour ce personnel à cette date
+        /// </summary>
+        private bool AbsenceExisteDeja(DateTime debut, DateTime fin)
+        {
+            var absences = controller.GetLesAbsences(personnel.Idpersonnel);
+
+            foreach (var absence in absences)
+            {
+                // Si les périodes se chevauchent
+                if (debut < absence.DateFin && fin > absence.DateDebut)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        /// <summary>
+        /// Clique sur le bouton de suppression d'une absence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSupprAbsence_Click(object sender, EventArgs e)
         {
             if (dgvLesAbsences.SelectedRows.Count > 0)
@@ -115,9 +134,7 @@ namespace MediaTek86.view
 
                 if (result == DialogResult.OK)
                 {
-                    MessageBox.Show("L'absence du personnel " + personnel.Nom 
-                    + " " + personnel.Prenom + " " + "datant du" + " " + absence.DateDebut 
-                    + " " + "au" + " " + absence.DateFin + " " + "a été supprimé.", "Information");
+                    AfficherMessageAbsence("supprimée", absence.DateDebut, absence.DateFin);
                     controller.DelAbsence(absence);
                     RemplirListeAbsences();
                 }
@@ -132,6 +149,11 @@ namespace MediaTek86.view
             }
         }
 
+        /// <summary>
+        /// Clique sur le bouton d'ajout d'une absence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjoutAbsence_Click(object sender, EventArgs e)
         {
             // Crée une instance du formulaire AjoutPersonnel
@@ -154,15 +176,18 @@ namespace MediaTek86.view
                     // Crée un objet Absence et l'ajoute
                     Absence absence = new Absence(personnel.Idpersonnel, datedebut, datefin, motif);
 
+                    if (controller.AbsenceExisteDejaPourAjout(personnel.Idpersonnel, datedebut, datefin))
+                    {
+                        MessageBox.Show("Ce personnel a déjà une absence à cette date.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                     // Ajout à la BDD
                     controller.AddAbsence(absence);
 
-                    // Met à jour la liste du personnels dans l'interface
+                    // Met à jour la liste des absences dans l'interface
                     RemplirListeAbsences();
-
-                    MessageBox.Show("L'absence du personnel " + personnel.Nom
-                    + " " + personnel.Prenom + " " + "datant du" + " " + datedebut
-                    + " " + "au" + " " + datefin + " " + "a été ajouté.", "Information");
+                    AfficherMessageAbsence("ajoutée", datedebut, datefin);
                 }
                 else
                 {
@@ -171,40 +196,51 @@ namespace MediaTek86.view
             }
         }
 
+        /// <summary>
+        /// Clique sur le bouton de modification d'une absence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModifAbsence_Click(object sender, EventArgs e)
         {
             if (dgvLesAbsences.Rows.Count > 0)
             {
                 Absence absence = (Absence)bdgAbsences.List[bdgAbsences.Position];
 
-                // Passer l'objet absence et le controller au formulaire
+                // Passe l'objet absence et le controller au formulaire
                 ModifAbsence modifAbsence = new ModifAbsence(absence, controller);
 
                 var result = modifAbsence.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
-                    // Récupérer les valeurs modifiées
-                    DateTime datedebut = modifAbsence.dtpModifDebut.Value;
-                    DateTime datefin = modifAbsence.dtpModifFin.Value;
-                    Motif motif = (Motif)modifAbsence.cboModifMotifAbsence.SelectedItem;
+                    // Récupère les nouvelles valeurs depuis le formulaire
+                    DateTime nouvelleDateDebut = modifAbsence.NouvelleDateDebut.Date;
+                    DateTime nouvelleDateFin = modifAbsence.NouvelleDateFin.Date;
+                    Motif nouveauMotif = modifAbsence.NouveauMotif;
 
-                    // Stocke de l'ancienne date de début
-                    absence.AncienneDateDebut = absence.DateDebut;
+                    // Sauvegarde des anciennes dates
+                    DateTime ancienneDateDebut = absence.DateDebut.Date;
+                    DateTime ancienneDateFin = absence.DateFin.Date;
 
-                    // Mettre à jour l'objet absence existant
-                    absence.DateDebut = datedebut;
-                    absence.DateFin = datefin;
-                    absence.Motif = motif;
+                    // Vérifie qu'aucune autre absence ne chevauche ces dates
+                    if (controller.AbsenceExisteDejaPourModif(absence.IdPersonnel, nouvelleDateDebut, nouvelleDateFin, ancienneDateDebut, ancienneDateFin))
+                    {
+                        MessageBox.Show("Une autre absence existe déjà dans ce créneau.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
-                    // Mise à jour en base de données
+                    // Met à jour l'objet absence
+                    absence.AncienneDateDebut = ancienneDateDebut;
+                    absence.DateDebut = nouvelleDateDebut;
+                    absence.DateFin = nouvelleDateFin;
+                    absence.Motif = nouveauMotif;
+
+                    // Met à jour dans la base de données
                     controller.UpdateAbsence(absence);
+                    AfficherMessageAbsence("modifiée", nouvelleDateDebut, nouvelleDateFin);
 
-                    MessageBox.Show("L'absence du personnel " + personnel.Nom
-                    + " " + personnel.Prenom + " " + "datant du" + " " + datedebut
-                    + " " + "au" + " " + datefin + " " + "a été modifié.", "Information");
-
-                    // Actualiser la liste affichée
+                    // Rafraîchit l'affichage
                     RemplirListeAbsences();
                 }
             }
@@ -214,9 +250,28 @@ namespace MediaTek86.view
             }
         }
 
+        /// <summary>
+        /// Clique sur le bouton de retour en arrière
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRetour_Click(object sender, EventArgs e)
         {
             GestionsAbsences.ActiveForm.Close();
         }
+
+        /// <summary>
+        /// Affiche un message d'information concernant une absence
+        /// </summary>
+        /// <param name="action">"ajoutée", "modifiée" ou "supprimée"</param>
+        /// <param name="datedebut">Date de début</param>
+        /// <param name="datefin">Date de fin</param>
+        private void AfficherMessageAbsence(string action, DateTime datedebut, DateTime datefin)
+        {
+            string message = $"L'absence du personnel {personnel.Nom} {personnel.Prenom} " +
+                             $"datant du {datedebut:dd/MM/yyyy} au {datefin:dd/MM/yyyy} a été {action}.";
+            MessageBox.Show(message, "Information");
+        }
+
     }
 }

@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace MediaTek86.controller
 {
+     /// <summary>
+     /// Contrôleur de FrmMediaTek86
+     /// </summary>
      public class FrmMediaTek86Controller
     {
         /// <summary>
@@ -144,6 +147,42 @@ namespace MediaTek86.controller
         public Boolean ControleAuthentification(Responsable responsable)
         {
             return responsableAccess.ControleAuthentification(responsable);
+        }
+
+        /// <summary>
+        /// Vérifie si L'absence existe déjà lors de l'ajout
+        /// </summary>
+        /// <param name="idPersonnel"></param>
+        /// <param name="debut"></param>
+        /// <param name="fin"></param>
+        /// <returns></returns>
+        public bool AbsenceExisteDejaPourAjout(int idPersonnel, DateTime debut, DateTime fin)
+        {
+            return absenceAccess.AbsenceExisteDejaPourAjout(idPersonnel, debut, fin);
+        }
+
+        /// <summary>
+        /// Récupère et retourne les absences DU personnel
+        /// </summary>
+        /// <param name="idPersonnel"></param>
+        /// <returns></returns>
+        public List<Absence> GetLesAbsences(int idPersonnel)
+        {
+            return absenceAccess.GetLesAbsences(idPersonnel);
+        }
+
+        /// <summary>
+        /// Vérifie si l'absence existe déjà lors de la modification
+        /// </summary>
+        /// <param name="idPersonnel"></param>
+        /// <param name="nouvelleDateDebut"></param>
+        /// <param name="nouvelleDateFin"></param>
+        /// <param name="ancienneDateDebut"></param>
+        /// <param name="ancienneDateFin"></param>
+        /// <returns></returns>
+        public bool AbsenceExisteDejaPourModif(int idPersonnel, DateTime nouvelleDateDebut, DateTime nouvelleDateFin, DateTime ancienneDateDebut, DateTime ancienneDateFin)
+        {
+            return absenceAccess.AbsenceExisteDejaPourModif(idPersonnel, nouvelleDateDebut, nouvelleDateFin, ancienneDateDebut, ancienneDateFin);
         }
     }
 }

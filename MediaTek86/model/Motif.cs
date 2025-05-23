@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MediaTek86.model
+﻿namespace MediaTek86.model
 {
+    /// <summary>
+    /// Classe métier interne pour mémoriser les informations du motif
+    /// </summary>
     public class Motif
     {
         /// <summary>
@@ -20,7 +17,14 @@ namespace MediaTek86.model
             this.Libelle = libelle;
         }
 
+        /// <summary>
+        /// Valorisateur
+        /// </summary>
         public int IdMotif { get; }
+
+        /// <summary>
+        /// Valorisateur
+        /// </summary>
         public string Libelle { get; set; }
 
         /// <summary>

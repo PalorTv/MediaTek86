@@ -1,16 +1,19 @@
 ﻿namespace MediaTek86.view
 {
+    /// <summary>
+    /// Vue d'AjoutAbsence
+    /// </summary>
     partial class AjoutAbsence
     {
         /// <summary>
-        /// Required designer variable.
+        /// Variable nécessaire au concepteur.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Nettoyage des ressources utilisées.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -145,6 +148,7 @@
             this.ClientSize = new System.Drawing.Size(436, 226);
             this.Controls.Add(this.grbAjoutAbsence);
             this.Name = "AjoutAbsence";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AjoutAbsence";
             this.grbAjoutAbsence.ResumeLayout(false);
             this.grbAjoutAbsence.PerformLayout();

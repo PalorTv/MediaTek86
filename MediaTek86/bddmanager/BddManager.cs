@@ -1,10 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MediaTek86.bddmanager
 {
@@ -14,12 +10,12 @@ namespace MediaTek86.bddmanager
     public class BddManager
     {
         /// <summary>
-        /// instance unique de la classe
+        /// Instance unique de la classe
         /// </summary>
         private static BddManager instance = null;
 
         /// <summary>
-        /// objet de connexion à la BDD à partir d'une chapine de connexion
+        /// Objet de connexion à la BDD à partir d'une chapine de connexion
         /// </summary>
         private readonly MySqlConnection connection;
 
@@ -27,7 +23,6 @@ namespace MediaTek86.bddmanager
         /// Constructeur pour créer la connexion à la BDD et l'ouvrir
         /// </summary>
         /// <param name="stringConnect"> chaîne de connexion </param>
-
         private BddManager(string stringConnect)
         {
             connection = new MySqlConnection(stringConnect);
@@ -53,7 +48,7 @@ namespace MediaTek86.bddmanager
         /// </summary>
         /// <param name="stringQuery">requête select</param>
         /// <param name="parameters">dictoinnaire contenant les parametres</param>
-        /// <returns>liste de tableaux d'objets contenant les valeurs des colonnes</returns>
+        /// <returns> liste de tableaux d'objets contenant les valeurs des colonnes </returns>
         public void ReqUpdate(string stringQuery, Dictionary<string, object> parameters = null)
         {
             MySqlCommand command = new MySqlCommand(stringQuery, connection);
@@ -73,7 +68,7 @@ namespace MediaTek86.bddmanager
         /// </summary>
         /// <param name="stringQuery">requête select</param>
         /// <param name="parameters">dictoinnaire contenant les parametres</param>
-        /// <returns>liste de tableaux d'objets contenant les valeurs des colonnes</returns>
+        /// <returns> liste de tableaux d'objets contenant les valeurs des colonnes </returns>
         public List<Object[]> ReqSelect(string stringQuery, Dictionary<string, object> parameters = null)
         {
             MySqlCommand command = new MySqlCommand(stringQuery, connection);
@@ -98,6 +93,12 @@ namespace MediaTek86.bddmanager
             return records;
         }
 
+        /// <summary>
+        /// Execution d'une requête qui modifient des données
+        /// </summary>
+        /// <param name="stringQuery"></param>
+        /// <param name="parameters"></param>
+        /// <returns> retourne le nombre de lignes affectées </returns>
         public int ReqUpdateWithRowsAffected(string stringQuery, Dictionary<string, object> parameters = null)
         {
             using (MySqlCommand command = new MySqlCommand(stringQuery, connection))
@@ -116,11 +117,11 @@ namespace MediaTek86.bddmanager
         }
 
         /// <summary>
-        /// Exécute une requête qui retourne une seule valeur
+        /// Exécution d'une requête qui récupère le champ d'une seule ligne
         /// </summary>
         /// <param name="stringQuery">Requête SQL</param>
         /// <param name="parameters">Paramètres de la requête</param>
-        /// <returns>Objet résultat (ex: int, string...)</returns>
+        /// <returns> retourne une seule valeur </returns>
         public object ReqScalar(string stringQuery, Dictionary<string, object> parameters = null)
         {
             using (MySqlCommand command = new MySqlCommand(stringQuery, connection))

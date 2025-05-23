@@ -2,18 +2,12 @@
 using MediaTek86.controller;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MediaTek86.view
 {
     /// <summary>
-    /// fenêtre d'affichage de l'ajout d'un personnel
+    /// Fenêtre d'affichage de l'ajout d'un personnel
     /// </summary>
     public partial class AjoutPersonnel : Form
     {
@@ -23,7 +17,7 @@ namespace MediaTek86.view
         private FrmMediaTek86Controller controller;
 
         /// <summary>
-        /// construction des composants graphiques et appel des autres initialisations
+        /// Construction des composants graphiques et appel des autres initialisations
         /// </summary>
         public AjoutPersonnel()
         {
@@ -42,6 +36,11 @@ namespace MediaTek86.view
             cboAjoutService.DisplayMember = "Nom";
         }
 
+        /// <summary>
+        /// Clique sur le bouton d'enregistrement de l'ajout du personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjoutEnregistrer_Click(object sender, EventArgs e)
         {
             // Vérifie que tous les champs sont remplis
@@ -61,6 +60,11 @@ namespace MediaTek86.view
             this.Close();
         }
 
+        /// <summary>
+        /// Clique sur le bouton d'annulation de l'ajout du personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjoutAnnuler_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Voulez-vous vraiment annuler ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)

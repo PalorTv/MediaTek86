@@ -2,18 +2,12 @@
 using MediaTek86.controller;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MediaTek86.view
 {
     /// <summary>
-    /// fenêtre d'affichage de l'ajout d'une absence
+    /// Fenêtre d'affichage de l'ajout d'une absence
     /// </summary>
     public partial class AjoutAbsence : Form
     {
@@ -25,7 +19,7 @@ namespace MediaTek86.view
         private Personnel personnel;
 
         /// <summary>
-        /// construction des composants graphiques et appel des autres initialisations
+        /// Construction des composants graphiques et appel des autres initialisations
         /// </summary>
         public AjoutAbsence(Personnel personnel)
         {
@@ -45,6 +39,11 @@ namespace MediaTek86.view
             cboMotifAbsence.DisplayMember = "libelle";
         }
 
+        /// <summary>
+        /// Clique sur le bouton d'annulation de l'ajout d'une absence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnulAjoutAbsence_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Voulez-vous vraiment annuler ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -54,6 +53,11 @@ namespace MediaTek86.view
             }
         }
 
+        /// <summary>
+        /// Clique sur le bouton d'enregistrement de l'ajout d'une absence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEnregistrerAjoutAbsence_Click(object sender, EventArgs e)
         {
             // Vérifie que tous les champs sont remplis

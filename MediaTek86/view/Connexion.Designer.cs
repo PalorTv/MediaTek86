@@ -1,5 +1,8 @@
 ﻿namespace MediaTek86
 {
+    /// <summary>
+    /// Vue de Connexion
+    /// </summary>
     partial class Connexion
     {
         /// <summary>
@@ -100,6 +103,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Connexion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Connexion";
             this.ResumeLayout(false);
             this.PerformLayout();

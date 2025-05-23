@@ -1,14 +1,7 @@
 ﻿using System;
 using MediaTek86.model;
 using MediaTek86.controller;
-using MediaTek86.view;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MediaTek86.view
@@ -19,21 +12,9 @@ namespace MediaTek86.view
     public partial class GestionsPersonnels : Form
     {
         /// <summary>
-        /// Booléen pour savoir si une modification est demandée
-        /// </summary>
-        private Boolean enCoursDeModifPersonnel = false;
-
-        private bool colonnesCachees = false;
-
-        /// <summary>
         /// Objet pour gérer la liste du personnels
         /// </summary>
         private BindingSource bdgPersonnels = new BindingSource();
-
-        /// <summary>
-        /// Objet pour gérer la liste du personnels
-        /// </summary>
-        private BindingSource bdgServices = new BindingSource();
 
         /// <summary>
         /// Controleur de la fenêtre
@@ -93,6 +74,11 @@ namespace MediaTek86.view
             CentrerDgvPersonnels();
         }
 
+        /// <summary>
+        /// Clique sur le bouton de suppression du personnel sélectionner
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSupprPerso_Click(object sender, EventArgs e)
         {
             if (dgvLePersonnels.SelectedRows.Count > 0)
@@ -103,8 +89,10 @@ namespace MediaTek86.view
 
                 if (result == DialogResult.OK)
                 {
-                    MessageBox.Show("Le personnel" + " " + personnel.Nom + " " + personnel.Prenom + " " + "a été supprimé.");
                     controller.DelPersonnel(personnel);
+
+                    AfficherMessagePersonnel("supprimé", personnel);
+
                     RemplirListePersonnels();
                 }
                 else
@@ -118,6 +106,11 @@ namespace MediaTek86.view
             }
         }
 
+        /// <summary>
+        /// Clique sur le bouton de l'ajout d'un personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjoutPerso_Click(object sender, EventArgs e)
         {
             // Crée une instance du formulaire AjoutPersonnel
@@ -129,7 +122,7 @@ namespace MediaTek86.view
             // Si l'utilisateur a cliqué sur "Enregistrer"
             if (result == DialogResult.OK)
             {
-                // Récupéres les valeurs après la fermeture du formulaire
+                // Récupères les valeurs après la fermeture du formulaire
                 string nom = ajoutPersonnel.txtAjoutNom.Text;
                 string prenom = ajoutPersonnel.txtAjoutPrenom.Text;
                 string tel = ajoutPersonnel.txtAjoutTel.Text;
@@ -139,11 +132,11 @@ namespace MediaTek86.view
                 // Vérifie que tous les champs sont remplis
                 if (!string.IsNullOrEmpty(nom) && !string.IsNullOrEmpty(prenom) && !string.IsNullOrEmpty(tel) && !string.IsNullOrEmpty(mail) && service != null)
                 {
-                    MessageBox.Show("Le personnel " + nom + " " + prenom + " a été correctement ajouté.");
-
-                    // Crée un objet Absence et l'ajoute
+                    // Crée un objet Personnel et l'ajoute
                     Personnel personnel = new Personnel(0, nom, prenom, tel, mail, service);
-                    controller.AddPersonnel(personnel);  // Ajout à la BDD
+                    controller.AddPersonnel(personnel);
+
+                    AfficherMessagePersonnel("ajouté", personnel);
 
                     // Met à jour la liste du personnels dans l'interface
                     RemplirListePersonnels();
@@ -155,39 +148,45 @@ namespace MediaTek86.view
             }
         }
 
+        /// <summary>
+        /// Clique sur le bouton de modification du personnel sélectionner
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModifPerso_Click(object sender, EventArgs e)
         {
             if (dgvLePersonnels.Rows.Count > 0)
             {
                 Personnel personnel = (Personnel)bdgPersonnels.List[bdgPersonnels.Position];
 
-                // Passer l'objet personnel et le controller au formulaire
+                // Passe l'objet personnel et le controller au formulaire
                 ModifPersonnel modifPersonnel = new ModifPersonnel(personnel, controller);
 
                 var result = modifPersonnel.ShowDialog();
 
+                // Si l'utilisateur a cliqué sur "Enregistrer" 
                 if (result == DialogResult.OK)
                 {
-                    // Récupérer les valeurs modifiées
+                    // Récupères les valeurs modifiées
                     string nom = modifPersonnel.txtModifNom.Text;
                     string prenom = modifPersonnel.txtModifPrenom.Text;
                     string tel = modifPersonnel.txtModifTel.Text;
                     string mail = modifPersonnel.txtModifMail.Text;
                     Service service = (Service)modifPersonnel.cboModifService.SelectedItem;
 
-                    // Mettre à jour l'objet personnel existant
+                    // Met à jour l'objet personnel existant
                     personnel.Nom = nom;
                     personnel.Prenom = prenom;
                     personnel.Tel = tel;
                     personnel.Mail = mail;
                     personnel.Service = service;
 
-                    // Mise à jour en base de données
+                    // Met à jour la base de données
                     controller.UpdatePersonnel(personnel);
 
-                    MessageBox.Show("Le personnel " + nom + " " + prenom + " a été correctement modifié.");
+                    AfficherMessagePersonnel("modifié", personnel);
 
-                    // Actualiser la liste affichée
+                    // Actualise la liste affichée
                     RemplirListePersonnels();
                 }
             }
@@ -197,14 +196,19 @@ namespace MediaTek86.view
             }
         }
 
+        /// <summary>
+        /// Clique sur le bouton affichant les absences correspondant au personnel sélectionner
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAbsencesPerso_Click(object sender, EventArgs e)
         {
             if (dgvLePersonnels.SelectedRows.Count > 0)
             {
-                // Récupérer le personnel sélectionné
+                // Récupère le personnel sélectionné
                 Personnel personnel = (Personnel)dgvLePersonnels.SelectedRows[0].DataBoundItem;
 
-                // Créer l'instance du formulaire en passant le personnel
+                // Crée l'instance du formulaire en passant le personnel
                 GestionsAbsences gestionsAbsences = new GestionsAbsences(personnel);
 
                 // Affiche le formulaire
@@ -215,5 +219,17 @@ namespace MediaTek86.view
                 MessageBox.Show("Veuillez sélectionner un personnel.", "Information");
             }
         }
+
+        /// <summary>
+        /// Affiche un message d'information concernant un personnel
+        /// </summary>
+        /// <param name="action">"ajouté", "modifié" ou "supprimé"</param>
+        /// <param name="personnel">L'objet Personnel concerné</param>
+        private void AfficherMessagePersonnel(string action, Personnel personnel)
+        {
+            string message = $"Le personnel {personnel.Nom} {personnel.Prenom} a été {action}.";
+            MessageBox.Show(message, "Information");
+        }
+
     }
 }
