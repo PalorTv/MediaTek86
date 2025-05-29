@@ -205,6 +205,7 @@
     <EmbeddedResource Include="view\Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="MediaTek86Installeur.msi" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -221,6 +222,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation technique.xml" />
+    <Content Include="mediatek86.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

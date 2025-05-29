@@ -176,9 +176,17 @@ namespace MediaTek86.view
                     // Crée un objet Absence et l'ajoute
                     Absence absence = new Absence(personnel.Idpersonnel, datedebut, datefin, motif);
 
+                    // Vérifie qu'aucune autre absence ne chevauche ces dates
                     if (controller.AbsenceExisteDejaPourAjout(personnel.Idpersonnel, datedebut, datefin))
                     {
                         MessageBox.Show("Ce personnel a déjà une absence à cette date.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Vérifie que la date de fin n'est pas antérieure à la date de début
+                    if (datefin < datedebut)
+                    {
+                        MessageBox.Show("La date de fin ne peut pas être antérieure ou égale à la date de début.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -227,6 +235,13 @@ namespace MediaTek86.view
                     if (controller.AbsenceExisteDejaPourModif(absence.IdPersonnel, nouvelleDateDebut, nouvelleDateFin, ancienneDateDebut, ancienneDateFin))
                     {
                         MessageBox.Show("Une autre absence existe déjà dans ce créneau.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Vérifie que la date de fin n'est pas antérieure à la date de début
+                    if (nouvelleDateFin < nouvelleDateDebut)
+                    {
+                        MessageBox.Show("La date de fin ne peut pas être antérieure ou égale à la date de début.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
